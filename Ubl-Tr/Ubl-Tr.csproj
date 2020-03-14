@@ -9,6 +9,7 @@
     <RepositoryType>Github</RepositoryType>
     <PackageTags>ubl-tr e-invoice ubl ubl-tr-2.1</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>
