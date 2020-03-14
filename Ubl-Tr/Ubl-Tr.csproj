@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Ubl_Tr</RootNamespace>
+    <Authors>Hakan Kutluay</Authors>
+    <Description>Ubl-Tr 2.1 C# classes generetad by xsd.exe</Description>
+    <RepositoryUrl>https://github.com/hkutluay/Ubl-Tr</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>ubl-tr e-invoice ubl ubl-tr-2.1</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>
