@@ -4,12 +4,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>UblTr</RootNamespace>
     <Authors>Hakan Kutluay</Authors>
-    <Description>Ubl-Tr 2.1 C# classes generetad by xsd.exe</Description>
+    <Description>Ubl-Tr v1.2.1 (UBL 2.1) C# Classes</Description>
     <RepositoryUrl>https://github.com/hkutluay/Ubl-Tr</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
-    <PackageTags>ubl-tr e-invoice ubl ubl-tr-2.1</PackageTags>
+    <PackageTags>ubltr ubl ubl-tr e-invoice ubl ubl-tr-1.2.1</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
 </Project>
