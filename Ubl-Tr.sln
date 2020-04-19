@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UblTr", "Ubl-Tr\UblTr.cspro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UblTr.Tests", "UblTr.Tests\UblTr.Tests.csproj", "{10AF92E9-4025-44CA-BD19-945E9ACE25F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UblTr.Serialization", "UblTr.Serialization\UblTr.Serialization.csproj", "{A55AFFD5-A13D-479B-B7AD-040C5997EB53}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{10AF92E9-4025-44CA-BD19-945E9ACE25F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10AF92E9-4025-44CA-BD19-945E9ACE25F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10AF92E9-4025-44CA-BD19-945E9ACE25F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A55AFFD5-A13D-479B-B7AD-040C5997EB53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A55AFFD5-A13D-479B-B7AD-040C5997EB53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A55AFFD5-A13D-479B-B7AD-040C5997EB53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A55AFFD5-A13D-479B-B7AD-040C5997EB53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

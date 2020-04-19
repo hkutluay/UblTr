@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ubl-Tr\UblTr.csproj" />
-    <ProjectReference Include="..\UblTr.Serialization\UblTr.Serialization.csproj" />
   </ItemGroup>
 
   <ItemGroup>
