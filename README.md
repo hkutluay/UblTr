@@ -20,21 +20,9 @@ invoice.ProfileID = new Common.ProfileIDType() { Value = "TEMELFATURA" };
 invoice.ID = new Common.IDType() { Value = "INV20200000000001" };
 invoice.CopyIndicator = new Common.CopyIndicatorType() { Value = false };
 
-var namespaces = new XmlSerializerNamespaces();
-namespaces.Add("cac", "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2");
-namespaces.Add("cbc", "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2");
-namespaces.Add("ccts", "urn:un:unece:uncefact:documentation:2");
-namespaces.Add("ds", "http://www.w3.org/2000/09/xmldsig#");
-namespaces.Add("ext", "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2");
-namespaces.Add("ubltr", "urn:oasis:names:specification:ubl:schema:xsd:TurkishCustomizationExtensionComponents");
-namespaces.Add("qdt", "urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2");
-namespaces.Add("udt", "urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2");
-namespaces.Add("xades", "http://uri.etsi.org/01903/v1.3.2#");
-namespaces.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-
 XmlSerializer xmlSerializer = new XmlSerializer(typeof(InvoiceType));
 TextWriter writer = new StreamWriter(@"C:\Temp\TestInvoice.xml"); //path to document
-xmlSerializer.Serialize(writer, invoice, namespaces);
+xmlSerializer.Serialize(writer, invoice, new UblTrNamespaces());
 
  ```
  
