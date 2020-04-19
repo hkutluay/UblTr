@@ -12,13 +12,15 @@ PM> Install-Package UblTr
 
 ## Serialize
 ```csharp
-var invoice = new InvoiceType(); 
-invoice.UUID = new Common.UUIDType() { Value = Guid.NewGuid().ToString() };
-invoice.UBLVersionID = new Common.UBLVersionIDType() { Value = "2.1" };
-invoice.CustomizationID = new Common.CustomizationIDType() { Value = "TR1.2" };
-invoice.ProfileID = new Common.ProfileIDType() { Value = "TEMELFATURA" };
-invoice.ID = new Common.IDType() { Value = "INV20200000000001" };
-invoice.CopyIndicator = new Common.CopyIndicatorType() { Value = false };
+var invoice = new InvoiceType
+{
+      UUID = new Common.UUIDType() { Value = Guid.NewGuid().ToString() },
+      UBLVersionID = new Common.UBLVersionIDType() { Value = "2.1" },
+      CustomizationID = new Common.CustomizationIDType() { Value = "TR1.2" },
+      ProfileID = new Common.ProfileIDType() { Value = "TEMELFATURA" },
+      ID = new Common.IDType() { Value = "INV20200000000001" },
+      CopyIndicator = new Common.CopyIndicatorType() { Value = false }
+};
 
 XmlSerializer xmlSerializer = new XmlSerializer(typeof(InvoiceType));
 TextWriter writer = new StreamWriter(@"C:\Temp\TestInvoice.xml"); //path to document
