@@ -12,19 +12,22 @@ PM> Install-Package UblTr
 
 ## Serialize
 ```csharp
-var invoice = new InvoiceType
+private static void Main(string[] args)
 {
-      UUID = new Common.UUIDType() { Value = Guid.NewGuid().ToString() },
-      UBLVersionID = new Common.UBLVersionIDType() { Value = "2.1" },
-      CustomizationID = new Common.CustomizationIDType() { Value = "TR1.2" },
-      ProfileID = new Common.ProfileIDType() { Value = "TEMELFATURA" },
-      ID = new Common.IDType() { Value = "INV20200000000001" },
-      CopyIndicator = new Common.CopyIndicatorType() { Value = false }
-};
+      var invoice = new UblTr.MainDoc.InvoiceType()
+      {
+            UUID = new UblTr.Common.UUIDType() { Value = Guid.NewGuid().ToString() },
+            UBLVersionID = new UblTr.Common.UBLVersionIDType() { Value = "2.1" },
+            CustomizationID = new UblTr.Common.CustomizationIDType() { Value = "TR1.2" },
+            ProfileID = new UblTr.Common.ProfileIDType() { Value = "TEMELFATURA" },
+            ID = new UblTr.Common.IDType() { Value = "INV20200000000001" },
+            CopyIndicator = new UblTr.Common.CopyIndicatorType() { Value = false }
+      };
 
-XmlSerializer xmlSerializer = new XmlSerializer(typeof(InvoiceType));
-TextWriter writer = new StreamWriter(@"C:\Temp\TestInvoice.xml"); //path to document
-xmlSerializer.Serialize(writer, invoice, new UblTrNamespaces());
+      XmlSerializer xmlSerializer = new XmlSerializer(typeof(UblTr.MainDoc.InvoiceType));
+      using TextWriter writer = new StreamWriter(@"C:\Temp\TestInvoice.xml"); //path to document
+      xmlSerializer.Serialize(writer, invoice, new UblTr.Serialization.UblTrNamespaces());
+}
 
  ```
  
@@ -55,11 +58,11 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
 ```csharp
 
 var path = @"C:\invoice.xml"; // path to invoice document
-XmlSerializer serializer = new XmlSerializer(typeof(InvoiceType));
+XmlSerializer serializer = new XmlSerializer(typeof(UblTr.MainDoc.InvoiceType));
 
 using (StreamReader reader = new StreamReader(path))
 {
-      var invoice = (InvoiceType)serializer.Deserialize(reader);
+      var invoice = (UblTr.MainDoc.InvoiceType)serializer.Deserialize(reader);
 }
  ```
  
