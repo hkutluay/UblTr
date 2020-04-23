@@ -1,5 +1,5 @@
   
-name: .NET Core
+name: build & run tests
 
 on: [push]
 
