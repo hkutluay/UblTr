@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;netstandard2.0;net45</TargetFrameworks>
     <RootNamespace>UblTr</RootNamespace>
     <Authors>Hakan Kutluay</Authors>
     <Description>Ubl-Tr v1.2.1 (UBL 2.1) C# Classes</Description>
