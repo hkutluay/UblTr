@@ -19,4 +19,4 @@ jobs:
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
     - name: Build with MSBuild
-      run: msbuild UblTr.sln -p:Configuration=Release
+      run: msbuild Ubl-Tr.sln -p:Configuration=Release
