@@ -18,6 +18,6 @@ jobs:
     - name: Test with dotnet
       run: dotnet test
     - name: Pack with dotnet
-      run: dotnet pack Ubl-Tr/UblTr.csproj --output nuget-packages --configuration Release
+      run: dotnet pack Ubl-Tr/UblTr.csproj --configuration Release
     - name: Push with dotnet
-      run: dotnet nuget push Ubl-Tr/Ubl-Tr/nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
