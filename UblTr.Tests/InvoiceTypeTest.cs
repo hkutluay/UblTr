@@ -68,9 +68,18 @@ namespace UblTr.Tests
 
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(InvoiceType));
-            TextWriter writer = new StreamWriter(@"C:\Temp\TestInvoice.xml");
-            xmlSerializer.Serialize(writer, invoice, new UblTrNamespaces());
+            var stream = new MemoryStream();
+            xmlSerializer.Serialize(stream, invoice, new UblTrNamespaces());
+            stream.Seek(0,SeekOrigin.Begin);
 
+
+            var deserializedInvoice = (InvoiceType)xmlSerializer.Deserialize(stream);
+
+            Assert.AreEqual(invoice.ID.Value, deserializedInvoice.ID.Value);
+            Assert.AreEqual(invoice.UUID.Value, deserializedInvoice.UUID.Value);
+            Assert.AreEqual(invoice.CustomizationID.Value, deserializedInvoice.CustomizationID.Value);
+            Assert.AreEqual(invoice.CopyIndicator.Value, deserializedInvoice.CopyIndicator.Value);
+            Assert.AreEqual(invoice.ProfileID.Value, deserializedInvoice.ProfileID.Value);
         }
 
 
