@@ -7,7 +7,7 @@
     <Description>Ubl-Tr v1.2.1 (UBL 2.1) C# Classes</Description>
     <RepositoryUrl>https://github.com/hkutluay/UblTr</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
-    <PackageTags>ubltr ubl-tr e-invoice ubl ubl-tr-1.2.1 e-fatura fatura </PackageTags>
+    <PackageTags>ubltr ubl-tr e-invoice ubl ubl-tr-1.2.1 e-fatura fatura efatura e-despatch eirsaliye irsaliye applicationresponse uygulamayaniti </PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.1.1</Version>
     <PackageIcon>icon.png</PackageIcon>
