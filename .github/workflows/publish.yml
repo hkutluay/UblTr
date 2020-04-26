@@ -20,4 +20,4 @@ jobs:
     - name: Pack with dotnet
       run: dotnet pack Ubl-Tr/UblTr.csproj --configuration Release
     - name: Push with dotnet
-      run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }}--source https://api.nuget.org/v3/index.json --no-symbols 1
+      run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --no-symbols 1
