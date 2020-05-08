@@ -1,5 +1,7 @@
 ![icon](https://user-images.githubusercontent.com/1468775/80278696-1f6a5200-8701-11ea-8b32-aaf38c4df24d.png)
 
+![build & test](https://github.com/hkutluay/UblTr/workflows/build%20&%20test/badge.svg)
+
 C# proxy classes to create and serialize .Net objects to Xml that conforms [UBL-TR v1.2.1](https://www.oasis-open.org/committees/sc_home.php?wg_abbrev=ubl-trlsc#en) standards or deserialize UBL-Tr documents to .Net objects.
 
 # Sample Usage
