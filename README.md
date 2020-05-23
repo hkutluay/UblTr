@@ -7,7 +7,7 @@ C# proxy classes to create and serialize .Net objects to Xml that conforms [UBL-
 # Sample Usage
 
 
-First install UblTr package:
+First install UblTr NuGet package:
 ```
 PM> Install-Package UblTr
 ```
