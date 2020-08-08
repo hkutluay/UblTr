@@ -99,6 +99,10 @@ namespace UblTr.MainDoc
 
         private InvoiceLineType[] invoiceLineField;
 
+
+        [System.Xml.Serialization.XmlAttributeAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string schemaLocation = "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 ../xsdrt/maindoc/UBL-Invoice-2.1.xsd";
+
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
         [System.Xml.Serialization.XmlArrayItemAttribute("UBLExtension", IsNullable = false)]

@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.Linq;
+using System.Xml;
 using System.Xml.Serialization;
 using UblTr.MainDoc;
 using UblTr.Serialization;
@@ -56,6 +57,8 @@ namespace UblTr.Tests
         [TestMethod]
         public void InvoiceType_BasicInvoice_Serialize()
         {
+            var document = new XmlDocument();
+
             var invoice = new InvoiceType
             {
                 UUID = new Common.UUIDType() { Value = Guid.NewGuid().ToString() },
@@ -63,7 +66,12 @@ namespace UblTr.Tests
                 CustomizationID = new Common.CustomizationIDType() { Value = "TR1.2" },
                 ProfileID = new Common.ProfileIDType() { Value = "TEMELFATURA" },
                 ID = new Common.IDType() { Value = "INV20200000000001" },
-                CopyIndicator = new Common.CopyIndicatorType() { Value = false }
+                CopyIndicator = new Common.CopyIndicatorType() { Value = false },
+                UBLExtensions = new Common.UBLExtensionType[] {
+                   new Common.UBLExtensionType() {
+                    ExtensionContent  =   document.CreateElement("auto-generated_for_wildcard","n4")
+                    }
+                }
             };
 
 
@@ -72,6 +80,7 @@ namespace UblTr.Tests
             xmlSerializer.Serialize(stream, invoice, new UblTrNamespaces());
             stream.Seek(0,SeekOrigin.Begin);
 
+            File.WriteAllBytes("/Users/hakankutluay/Downloads/TestInvoice.xml", stream.ToArray());
 
             var deserializedInvoice = (InvoiceType)xmlSerializer.Deserialize(stream);
 
