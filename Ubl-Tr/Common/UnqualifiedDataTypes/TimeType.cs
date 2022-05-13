@@ -1,3 +1,7 @@
+using System;
+using System.Globalization;
+using System.Xml.Serialization;
+
 namespace UblTr.Common
 {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidationTimeType))]
@@ -41,7 +45,7 @@ namespace UblTr.Common
         private System.DateTime valueField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute(DataType = "time")]
+        [System.Xml.Serialization.XmlIgnore]
         public System.DateTime Value
         {
             get
@@ -52,6 +56,13 @@ namespace UblTr.Common
             {
                 this.valueField = value;
             }
+        }
+
+        [System.Xml.Serialization.XmlTextAttribute(DataType = "string")]
+        public String TimeString
+        {
+            get { return this.valueField.ToString("HH:mm:ss"); }
+            set { this.valueField = DateTime.ParseExact(value, "HH:mm:ss", CultureInfo.InvariantCulture); }
         }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -58,6 +59,7 @@ namespace UblTr.Tests
         public void InvoiceType_BasicInvoice_Serialize()
         {
             var document = new XmlDocument();
+            var date = DateTime.Now;
 
             var invoice = new InvoiceType
             {
@@ -71,7 +73,9 @@ namespace UblTr.Tests
                    new Common.UBLExtensionType() {
                     ExtensionContent  =   document.CreateElement("auto-generated_for_wildcard","n4")
                     }
-                }
+                },
+                IssueTime = new Common.IssueTimeType() { Value = date },
+                IssueDate = new Common.IssueDateType() { Value = date }
             };
 
 
@@ -80,8 +84,6 @@ namespace UblTr.Tests
             xmlSerializer.Serialize(stream, invoice, new UblTrNamespaces());
             stream.Seek(0,SeekOrigin.Begin);
 
-           // File.WriteAllBytes("/Users/hakankutluay/Downloads/TestInvoice.xml", stream.ToArray());
-
             var deserializedInvoice = (InvoiceType)xmlSerializer.Deserialize(stream);
 
             Assert.AreEqual(invoice.ID.Value, deserializedInvoice.ID.Value);
@@ -89,6 +91,48 @@ namespace UblTr.Tests
             Assert.AreEqual(invoice.CustomizationID.Value, deserializedInvoice.CustomizationID.Value);
             Assert.AreEqual(invoice.CopyIndicator.Value, deserializedInvoice.CopyIndicator.Value);
             Assert.AreEqual(invoice.ProfileID.Value, deserializedInvoice.ProfileID.Value);
+        }
+
+
+        [TestMethod]
+        public void InvoiceType_BasicInvoice_TimeSerialize()
+        {
+            var document = new XmlDocument();
+
+            // var date = DateTime.ParseExact("2022/01/01 22:30:44", "yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture);
+            var date = DateTime.Now;
+            var invoice = new InvoiceType
+            {
+                UUID = new Common.UUIDType() { Value = Guid.NewGuid().ToString() },
+                UBLVersionID = new Common.UBLVersionIDType() { Value = "2.1" },
+                CustomizationID = new Common.CustomizationIDType() { Value = "TR1.2" },
+                ProfileID = new Common.ProfileIDType() { Value = "TEMELFATURA" },
+                ID = new Common.IDType() { Value = "INV20200000000001" },
+                CopyIndicator = new Common.CopyIndicatorType() { Value = false },
+                UBLExtensions = new Common.UBLExtensionType[] {
+                   new Common.UBLExtensionType() {
+                    ExtensionContent  =   document.CreateElement("auto-generated_for_wildcard","n4")
+                    }
+                },
+                IssueTime = new Common.IssueTimeType() { Value = date },
+                IssueDate = new Common.IssueDateType() { Value = date }
+            };
+
+
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(InvoiceType));
+            var stream = new MemoryStream();
+            xmlSerializer.Serialize(stream, invoice, new UblTrNamespaces());
+            stream.Seek(0, SeekOrigin.Begin);
+
+            var xPath = @"//*[local-name() = 'Invoice']/cbc:IssueTime";
+
+            var doc = new XmlDocument();
+            var namespaces = new UblTrNamespacesManager(doc.NameTable);
+            doc.Load(stream);
+            var sn = doc.SelectSingleNode(xPath, namespaces);
+          
+            Assert.AreEqual(sn.InnerText, date.ToString("HH:mm:ss"));
+
         }
 
 
