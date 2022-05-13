@@ -84,8 +84,6 @@ namespace UblTr.Tests
             xmlSerializer.Serialize(stream, invoice, new UblTrNamespaces());
             stream.Seek(0,SeekOrigin.Begin);
 
-            File.WriteAllBytes("/Users/hakankutluay/Downloads/TestInvoice.xml", stream.ToArray());
-
             var deserializedInvoice = (InvoiceType)xmlSerializer.Deserialize(stream);
 
             Assert.AreEqual(invoice.ID.Value, deserializedInvoice.ID.Value);
