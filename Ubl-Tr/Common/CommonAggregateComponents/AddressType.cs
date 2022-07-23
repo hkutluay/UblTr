@@ -33,6 +33,9 @@ namespace UblTr.Common
         private DistrictType districtField;
 
         private CountryType countryField;
+        
+        private PlotIdentificationType plotIdentificationField;
+
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
@@ -203,6 +206,7 @@ namespace UblTr.Common
         }
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
         public CountryType Country
         {
             get
@@ -213,6 +217,13 @@ namespace UblTr.Common
             {
                 this.countryField = value;
             }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+        public PlotIdentificationType PlotIdentification
+        {
+            get { return plotIdentificationField; }
+            set { plotIdentificationField = value; }
         }
     }
 }
