@@ -134,7 +134,7 @@ namespace UblTr.Tests
             doc.Load(stream);
             var sn = doc.SelectSingleNode(xPath, namespaces);
           
-            Assert.AreEqual(sn.InnerText, date.ToString("HH:mm:ss"));
+            Assert.AreEqual(date.ToString("HH:mm:ss"), sn.InnerText);
 
         }
 
