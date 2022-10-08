@@ -41,6 +41,7 @@ namespace UblTr.Tests
             Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
             Assert.AreEqual("1288331521", invoice.Signature[0].SignatoryParty.PartyIdentification.FirstOrDefault().ID.Value);
             Assert.AreEqual(101, invoice.InvoiceLine.FirstOrDefault().InvoicedQuantity.Value);
+            Assert.AreEqual("14:42:00", invoice.IssueTime.Value.ToString("HH:mm:ss"));
         }
 
 
@@ -53,6 +54,8 @@ namespace UblTr.Tests
             Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
             Assert.AreEqual("1288331521", invoice.Signature[0].SignatoryParty.PartyIdentification.FirstOrDefault().ID.Value);
             Assert.AreEqual(12, invoice.InvoiceLine.FirstOrDefault().InvoicedQuantity.Value);
+            Assert.AreEqual("14:42:00", invoice.IssueTime.Value.ToString("HH:mm:ss"));
+
         }
 
         [TestMethod]
@@ -131,7 +134,7 @@ namespace UblTr.Tests
             doc.Load(stream);
             var sn = doc.SelectSingleNode(xPath, namespaces);
           
-            Assert.AreEqual(sn.InnerText, date.ToString("HH:mm:ss"));
+            Assert.AreEqual(date.ToString("HH:mm:ss"), sn.InnerText);
 
         }
 
