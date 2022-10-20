@@ -45,6 +45,8 @@ namespace UblTr.Common
 
         private List<string> applicableTimeFormats = new List<string> {
             "HH:mm:ss",
+            "HH:mm",
+            "HH:mm:ss.fffff",
             "HH:mm:ss.fffffff",
             "HH:mm:ss.fffffffzzz"
         };

@@ -44,7 +44,9 @@
     <None Update="TestFiles\InvoiceType\CommercialInvoice.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-
+    <None Update="TestFiles\InvoiceType\BasicInvoiceHourMinuteTime.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

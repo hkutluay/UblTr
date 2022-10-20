@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -13,21 +12,13 @@ namespace UblTr.Tests
     [TestClass]
     public class InvoiceTypeTest
     {
-        private readonly string _basicInvoicePath;
-        private readonly string _basicInvoiceLongTimePath;
-        private readonly string _basicInvoiceIncorrectTimePath;
-        private readonly string _basicInvoiceNoTimePath;
-        private readonly string _commercialInvoicePath;
-
+        private readonly string _testFilesPath;
+      
         public InvoiceTypeTest()
         {
-            var path = "TestFiles/InvoiceType/";
-            _basicInvoicePath = $"{path}BasicInvoice.xml";
-            _basicInvoiceLongTimePath = $"{path}BasicInvoiceLongTime.xml";
-            _basicInvoiceIncorrectTimePath = $"{path}BasicInvoiceIncorrectTime.xml";
-            _basicInvoiceNoTimePath = $"{path}BasicInvoiceNoTime.xml";
-            _commercialInvoicePath = $"{path}CommercialInvoice.xml";
+             _testFilesPath = "TestFiles/InvoiceType";
         }
+
         InvoiceType DeserializeInvoiceXml(string path)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(InvoiceType));
@@ -41,7 +32,7 @@ namespace UblTr.Tests
         [TestMethod]
         public void InvoiceType_BasicInvoice_Deserialize()
         {
-            var invoice = DeserializeInvoiceXml(_basicInvoicePath);
+            var invoice = DeserializeInvoiceXml($"{_testFilesPath}/BasicInvoice.xml");
             Assert.AreEqual("GIB20090000000001", invoice.ID.Value);
             Assert.AreEqual("TEMELFATURA", invoice.ProfileID.Value);
             Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
@@ -53,13 +44,16 @@ namespace UblTr.Tests
         [TestMethod]
         public void InvoiceType_BasicInvoiceLongTime_Deserialize()
         {
-            var invoice = DeserializeInvoiceXml(_basicInvoiceLongTimePath);
-            Assert.AreEqual("GIB20090000000001", invoice.ID.Value);
-            Assert.AreEqual("TEMELFATURA", invoice.ProfileID.Value);
-            Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
-            Assert.AreEqual("1288331521", invoice.Signature[0].SignatoryParty.PartyIdentification.FirstOrDefault().ID.Value);
-            Assert.AreEqual(101, invoice.InvoiceLine.FirstOrDefault().InvoicedQuantity.Value);
+            var invoice = DeserializeInvoiceXml( $"{_testFilesPath}/BasicInvoiceLongTime.xml");
             Assert.AreEqual("17:26:02", invoice.IssueTime.Value.ToString("HH:mm:ss"));
+        }
+
+
+         [TestMethod]
+        public void InvoiceType_BasicInvoiceHourMinute_Deserialize()
+        {
+            var invoice = DeserializeInvoiceXml( $"{_testFilesPath}/BasicInvoiceHourMinuteTime.xml");
+            Assert.AreEqual("14:42", invoice.IssueTime.Value.ToString("HH:mm"));
         }
 
         [TestMethod]
@@ -67,26 +61,21 @@ namespace UblTr.Tests
         {
             Assert.ThrowsException<System.InvalidOperationException>(() =>
             {
-               var invoice = DeserializeInvoiceXml(_basicInvoiceIncorrectTimePath);
+               var invoice = DeserializeInvoiceXml($"{_testFilesPath}/BasicInvoiceIncorrectTime.xml");
             });
         }
 
         [TestMethod]
         public void InvoiceType_BasicInvoiceNoTime_Deserialize()
         {
-            var invoice = DeserializeInvoiceXml(_basicInvoiceNoTimePath);
-            Assert.AreEqual("GIB20090000000001", invoice.ID.Value);
-            Assert.AreEqual("TEMELFATURA", invoice.ProfileID.Value);
-            Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
-            Assert.AreEqual("1288331521", invoice.Signature[0].SignatoryParty.PartyIdentification.FirstOrDefault().ID.Value);
-            Assert.AreEqual(101, invoice.InvoiceLine.FirstOrDefault().InvoicedQuantity.Value);
+            var invoice = DeserializeInvoiceXml($"{_testFilesPath}/BasicInvoiceNoTime.xml");
             Assert.IsNull(invoice.IssueTime);
         }
 
         [TestMethod]
         public void InvoiceType_CommercialInvoice_Deserialize()
         {
-            var invoice = DeserializeInvoiceXml(_commercialInvoicePath);
+            var invoice = DeserializeInvoiceXml($"{_testFilesPath}/CommercialInvoice.xml");
             Assert.AreEqual("GIB2009000000011", invoice.ID.Value);
             Assert.AreEqual("TICARIFATURA", invoice.ProfileID.Value);
             Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
