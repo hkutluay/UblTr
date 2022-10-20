@@ -46,7 +46,7 @@ namespace UblTr.Tests
         public void InvoiceType_BasicInvoiceLongTime_Deserialize()
         {
             var invoice = DeserializeInvoiceXml( $"{_testFilesPath}/BasicInvoiceLongTime.xml");
-            Assert.AreEqual("17:26:02", invoice.IssueTime.Value.ToString("HH:mm:ss", CultureInfo.InvariantCulture));
+            Assert.AreEqual("17:11:02", TimeZoneInfo.ConvertTimeToUtc(invoice.IssueTime.Value).ToString("HH:mm:ss"));
         }
 
 
