@@ -1,6 +1,5 @@
 using System;
 using System.Globalization;
-using System.Xml.Serialization;
 using System.Collections.Generic;
 
 namespace UblTr.Common

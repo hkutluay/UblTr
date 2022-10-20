@@ -6,6 +6,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using UblTr.MainDoc;
 using UblTr.Serialization;
+using System.Globalization;
 
 namespace UblTr.Tests
 {
@@ -38,14 +39,14 @@ namespace UblTr.Tests
             Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
             Assert.AreEqual("1288331521", invoice.Signature[0].SignatoryParty.PartyIdentification.FirstOrDefault().ID.Value);
             Assert.AreEqual(101, invoice.InvoiceLine.FirstOrDefault().InvoicedQuantity.Value);
-            Assert.AreEqual("14:42:00", invoice.IssueTime.Value.ToString("HH:mm:ss"));
+            Assert.AreEqual("14:42:00", invoice.IssueTime.Value.ToString("HH:mm:ss", CultureInfo.InvariantCulture));
         }
 
         [TestMethod]
         public void InvoiceType_BasicInvoiceLongTime_Deserialize()
         {
             var invoice = DeserializeInvoiceXml( $"{_testFilesPath}/BasicInvoiceLongTime.xml");
-            Assert.AreEqual("17:26:02", invoice.IssueTime.Value.ToString("HH:mm:ss"));
+            Assert.AreEqual("17:26:02", invoice.IssueTime.Value.ToString("HH:mm:ss", CultureInfo.InvariantCulture));
         }
 
 
@@ -53,7 +54,7 @@ namespace UblTr.Tests
         public void InvoiceType_BasicInvoiceHourMinute_Deserialize()
         {
             var invoice = DeserializeInvoiceXml( $"{_testFilesPath}/BasicInvoiceHourMinuteTime.xml");
-            Assert.AreEqual("14:42", invoice.IssueTime.Value.ToString("HH:mm"));
+            Assert.AreEqual("14:42", invoice.IssueTime.Value.ToString("HH:mm", CultureInfo.InvariantCulture));
         }
 
         [TestMethod]
