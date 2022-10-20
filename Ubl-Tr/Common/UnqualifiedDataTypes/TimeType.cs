@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 
 namespace UblTr.Common
 {
@@ -42,6 +43,12 @@ namespace UblTr.Common
     public partial class TimeType
     {
 
+        private List<string> applicableTimeFormats = new List<string> {
+            "HH:mm:ss",
+            "HH:mm:ss.fffffff",
+            "HH:mm:ss.fffffffzzz"
+        };
+
         private System.DateTime valueField;
 
         /// <remarks/>
@@ -62,7 +69,24 @@ namespace UblTr.Common
         public String TimeString
         {
             get { return this.valueField.ToString("HH:mm:ss"); }
-            set { this.valueField = DateTime.ParseExact(value, "HH:mm:ss", CultureInfo.InvariantCulture); }
+            set { 
+
+                bool parsed = false;
+                DateTime parsedValue;
+
+                foreach (var format in applicableTimeFormats)
+                {
+                    if(DateTime.TryParseExact(value, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedValue)) 
+                    {
+                        this.valueField = parsedValue;
+                        parsed = true;
+                    }
+                }
+                
+                if(!parsed) 
+                    throw new FormatException($"time {value} is not in correct format");
+                
+            }
         }
     }
 }
