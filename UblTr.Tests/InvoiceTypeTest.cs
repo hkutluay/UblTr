@@ -1,27 +1,25 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 using UblTr.MainDoc;
 using UblTr.Serialization;
+using System.Globalization;
 
 namespace UblTr.Tests
 {
     [TestClass]
     public class InvoiceTypeTest
     {
-        private readonly string _basicInvoicePath;
-        private readonly string _commercialInvoicePath;
-
+        private readonly string _testFilesPath;
+      
         public InvoiceTypeTest()
         {
-            var path = "TestFiles/InvoiceType/";
-            _basicInvoicePath = $"{path}BasicInvoice.xml";
-            _commercialInvoicePath = $"{path}CommercialInvoice.xml";
+             _testFilesPath = "TestFiles/InvoiceType";
         }
+
         InvoiceType DeserializeInvoiceXml(string path)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(InvoiceType));
@@ -35,27 +33,56 @@ namespace UblTr.Tests
         [TestMethod]
         public void InvoiceType_BasicInvoice_Deserialize()
         {
-            var invoice = DeserializeInvoiceXml(_basicInvoicePath);
+            var invoice = DeserializeInvoiceXml($"{_testFilesPath}/BasicInvoice.xml");
             Assert.AreEqual("GIB20090000000001", invoice.ID.Value);
             Assert.AreEqual("TEMELFATURA", invoice.ProfileID.Value);
             Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
             Assert.AreEqual("1288331521", invoice.Signature[0].SignatoryParty.PartyIdentification.FirstOrDefault().ID.Value);
             Assert.AreEqual(101, invoice.InvoiceLine.FirstOrDefault().InvoicedQuantity.Value);
-            Assert.AreEqual("14:42:00", invoice.IssueTime.Value.ToString("HH:mm:ss"));
+            Assert.AreEqual("14:42:00", invoice.IssueTime.Value.ToString("HH:mm:ss", CultureInfo.InvariantCulture));
         }
 
+        [TestMethod]
+        public void InvoiceType_BasicInvoiceLongTime_Deserialize()
+        {
+            var invoice = DeserializeInvoiceXml( $"{_testFilesPath}/BasicInvoiceLongTime.xml");
+            Assert.AreEqual("17:11:02", TimeZoneInfo.ConvertTimeToUtc(invoice.IssueTime.Value).ToString("HH:mm:ss"));
+        }
+
+
+         [TestMethod]
+        public void InvoiceType_BasicInvoiceHourMinute_Deserialize()
+        {
+            var invoice = DeserializeInvoiceXml( $"{_testFilesPath}/BasicInvoiceHourMinuteTime.xml");
+            Assert.AreEqual("14:42", invoice.IssueTime.Value.ToString("HH:mm", CultureInfo.InvariantCulture));
+        }
+
+        [TestMethod]
+        public void InvoiceType_BasicInvoiceIncorrectTime_Deserialize()
+        {
+            Assert.ThrowsException<System.InvalidOperationException>(() =>
+            {
+               var invoice = DeserializeInvoiceXml($"{_testFilesPath}/BasicInvoiceIncorrectTime.xml");
+            });
+        }
+
+        [TestMethod]
+        public void InvoiceType_BasicInvoiceNoTime_Deserialize()
+        {
+            var invoice = DeserializeInvoiceXml($"{_testFilesPath}/BasicInvoiceNoTime.xml");
+            Assert.IsNull(invoice.IssueTime);
+        }
 
         [TestMethod]
         public void InvoiceType_CommercialInvoice_Deserialize()
         {
-            var invoice = DeserializeInvoiceXml(_commercialInvoicePath);
+            var invoice = DeserializeInvoiceXml($"{_testFilesPath}/CommercialInvoice.xml");
             Assert.AreEqual("GIB2009000000011", invoice.ID.Value);
             Assert.AreEqual("TICARIFATURA", invoice.ProfileID.Value);
             Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
             Assert.AreEqual("1288331521", invoice.Signature[0].SignatoryParty.PartyIdentification.FirstOrDefault().ID.Value);
             Assert.AreEqual(12, invoice.InvoiceLine.FirstOrDefault().InvoicedQuantity.Value);
             Assert.AreEqual("14:42:00", invoice.IssueTime.Value.ToString("HH:mm:ss"));
-
         }
 
         [TestMethod]
@@ -81,7 +108,7 @@ namespace UblTr.Tests
                 IssueDate = new Common.IssueDateType() { Value = date }
             };
 
-
+       
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(InvoiceType));
             var stream = new MemoryStream();
             xmlSerializer.Serialize(stream, invoice, new UblTrNamespaces());
@@ -95,6 +122,7 @@ namespace UblTr.Tests
             Assert.AreEqual(invoice.CopyIndicator.Value, deserializedInvoice.CopyIndicator.Value);
             Assert.AreEqual(invoice.ProfileID.Value, deserializedInvoice.ProfileID.Value);
         }
+
 
 
         [TestMethod]
