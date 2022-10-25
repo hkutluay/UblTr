@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TransportExecutionPlanReferenceID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TransportExecutionPlanReferenceIDType : IdentifierType1
     {
-    }
+		public static implicit operator TransportExecutionPlanReferenceIDType(string val)
+		{
+			return new TransportExecutionPlanReferenceIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

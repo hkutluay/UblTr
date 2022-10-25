@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ActualDespatchTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ActualDespatchTimeType : TimeType
     {
-    }
+		public static implicit operator ActualDespatchTimeType(System.DateTime val)
+		{
+			return new ActualDespatchTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

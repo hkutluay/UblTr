@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BasicConsumedQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BasicConsumedQuantityType : QuantityType1
     {
-    }
+		public static implicit operator BasicConsumedQuantityType(decimal val)
+		{
+			return new BasicConsumedQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

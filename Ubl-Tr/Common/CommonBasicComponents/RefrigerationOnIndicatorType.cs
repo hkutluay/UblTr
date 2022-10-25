@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RefrigerationOnIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RefrigerationOnIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator RefrigerationOnIndicatorType(bool val)
+		{
+			return new RefrigerationOnIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

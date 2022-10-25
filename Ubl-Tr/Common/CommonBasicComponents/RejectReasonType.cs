@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RejectReason", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RejectReasonType : TextType1
     {
-    }
+		public static implicit operator RejectReasonType(string val)
+		{
+			return new RejectReasonType
+			{
+				Value = val
+			};
+		}
+	}
 }

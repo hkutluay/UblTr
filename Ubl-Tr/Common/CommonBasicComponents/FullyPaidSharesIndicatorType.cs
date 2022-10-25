@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FullyPaidSharesIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FullyPaidSharesIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator FullyPaidSharesIndicatorType(bool val)
+		{
+			return new FullyPaidSharesIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReminderSequenceNumeric", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReminderSequenceNumericType : NumericType1
     {
-    }
+		public static implicit operator ReminderSequenceNumericType(decimal val)
+		{
+			return new ReminderSequenceNumericType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RoamingPartnerName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RoamingPartnerNameType : NameType
     {
-    }
+		public static implicit operator RoamingPartnerNameType(string val)
+		{
+			return new RoamingPartnerNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

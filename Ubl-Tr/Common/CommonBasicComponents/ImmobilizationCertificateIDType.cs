@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ImmobilizationCertificateID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ImmobilizationCertificateIDType : IdentifierType1
     {
-    }
+		public static implicit operator ImmobilizationCertificateIDType(string val)
+		{
+			return new ImmobilizationCertificateIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

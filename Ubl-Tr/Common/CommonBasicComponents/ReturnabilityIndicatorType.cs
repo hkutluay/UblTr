@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReturnabilityIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReturnabilityIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator ReturnabilityIndicatorType(bool val)
+		{
+			return new ReturnabilityIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

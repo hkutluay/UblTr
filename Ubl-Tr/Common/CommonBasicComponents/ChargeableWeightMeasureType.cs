@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ChargeableWeightMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ChargeableWeightMeasureType : MeasureType1
     {
-    }
+		public static implicit operator ChargeableWeightMeasureType(decimal val)
+		{
+			return new ChargeableWeightMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

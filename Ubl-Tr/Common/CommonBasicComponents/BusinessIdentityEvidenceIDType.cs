@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BusinessIdentityEvidenceID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BusinessIdentityEvidenceIDType : IdentifierType1
     {
-    }
+		public static implicit operator BusinessIdentityEvidenceIDType(string val)
+		{
+			return new BusinessIdentityEvidenceIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

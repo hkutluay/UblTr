@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ServiceInformationPreferenceCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ServiceInformationPreferenceCodeType : CodeType1
     {
-    }
+		public static implicit operator ServiceInformationPreferenceCodeType(string val)
+		{
+			return new ServiceInformationPreferenceCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MarkAttentionIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MarkAttentionIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator MarkAttentionIndicatorType(bool val)
+		{
+			return new MarkAttentionIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

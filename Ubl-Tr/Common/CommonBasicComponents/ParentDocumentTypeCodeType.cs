@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ParentDocumentTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ParentDocumentTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator ParentDocumentTypeCodeType(string val)
+		{
+			return new ParentDocumentTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

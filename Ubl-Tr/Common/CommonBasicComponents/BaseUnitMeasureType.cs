@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BaseUnitMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BaseUnitMeasureType : MeasureType1
     {
-    }
+		public static implicit operator BaseUnitMeasureType(decimal val)
+		{
+			return new BaseUnitMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

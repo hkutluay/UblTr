@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RoundingAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RoundingAmountType : AmountType1
     {
-    }
+		public static implicit operator RoundingAmountType(decimal val)
+		{
+			return new RoundingAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

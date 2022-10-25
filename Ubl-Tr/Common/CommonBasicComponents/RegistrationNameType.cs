@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RegistrationName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RegistrationNameType : NameType
     {
-    }
+		public static implicit operator RegistrationNameType(string val)
+		{
+			return new RegistrationNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

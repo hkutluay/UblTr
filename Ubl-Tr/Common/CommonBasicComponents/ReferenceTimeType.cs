@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReferenceTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReferenceTimeType : TimeType
     {
-    }
+		public static implicit operator ReferenceTimeType(System.DateTime val)
+		{
+			return new ReferenceTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

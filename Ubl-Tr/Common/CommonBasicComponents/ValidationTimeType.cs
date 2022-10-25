@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ValidationTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ValidationTimeType : TimeType
     {
-    }
+		public static implicit operator ValidationTimeType(System.DateTime val)
+		{
+			return new ValidationTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

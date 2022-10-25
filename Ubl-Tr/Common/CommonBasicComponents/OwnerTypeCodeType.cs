@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OwnerTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OwnerTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator OwnerTypeCodeType(string val)
+		{
+			return new OwnerTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

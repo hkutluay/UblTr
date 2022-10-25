@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LatestMeterReadingMethodCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LatestMeterReadingMethodCodeType : CodeType1
     {
-    }
+		public static implicit operator LatestMeterReadingMethodCodeType(string val)
+		{
+			return new LatestMeterReadingMethodCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

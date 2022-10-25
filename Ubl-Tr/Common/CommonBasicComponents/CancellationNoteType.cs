@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CancellationNote", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CancellationNoteType : TextType1
     {
-    }
+		public static implicit operator CancellationNoteType(string val)
+		{
+			return new CancellationNoteType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("GuaranteeTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class GuaranteeTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator GuaranteeTypeCodeType(string val)
+		{
+			return new GuaranteeTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

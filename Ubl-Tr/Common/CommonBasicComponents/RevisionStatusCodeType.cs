@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RevisionStatusCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RevisionStatusCodeType : CodeType1
     {
-    }
+		public static implicit operator RevisionStatusCodeType(string val)
+		{
+			return new RevisionStatusCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

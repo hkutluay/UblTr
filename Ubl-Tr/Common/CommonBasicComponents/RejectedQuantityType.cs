@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RejectedQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RejectedQuantityType : QuantityType1
     {
-    }
+		public static implicit operator RejectedQuantityType(decimal val)
+		{
+			return new RejectedQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

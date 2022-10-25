@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ProductTraceID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ProductTraceIDType : IdentifierType1
     {
-    }
+		public static implicit operator ProductTraceIDType(string val)
+		{
+			return new ProductTraceIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

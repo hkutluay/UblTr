@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ConditionsDescription", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ConditionsDescriptionType : TextType1
     {
-    }
+		public static implicit operator ConditionsDescriptionType(string val)
+		{
+			return new ConditionsDescriptionType
+			{
+				Value = val
+			};
+		}
+	}
 }

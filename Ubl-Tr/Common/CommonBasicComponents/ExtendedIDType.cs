@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ExtendedID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ExtendedIDType : IdentifierType1
     {
-    }
+		public static implicit operator ExtendedIDType(string val)
+		{
+			return new ExtendedIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

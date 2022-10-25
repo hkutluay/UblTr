@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReferencedConsignmentID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReferencedConsignmentIDType : IdentifierType1
     {
-    }
+		public static implicit operator ReferencedConsignmentIDType(string val)
+		{
+			return new ReferencedConsignmentIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

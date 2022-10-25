@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DocumentationFeeAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DocumentationFeeAmountType : AmountType1
     {
-    }
+		public static implicit operator DocumentationFeeAmountType(decimal val)
+		{
+			return new DocumentationFeeAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RoleDescription", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RoleDescriptionType : TextType1
     {
-    }
+		public static implicit operator RoleDescriptionType(string val)
+		{
+			return new RoleDescriptionType
+			{
+				Value = val
+			};
+		}
+	}
 }

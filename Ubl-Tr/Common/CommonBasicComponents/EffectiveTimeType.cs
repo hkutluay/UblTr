@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EffectiveTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EffectiveTimeType : TimeType
     {
-    }
+		public static implicit operator EffectiveTimeType(System.DateTime val)
+		{
+			return new EffectiveTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

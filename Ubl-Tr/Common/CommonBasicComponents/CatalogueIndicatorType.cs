@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CatalogueIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CatalogueIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator CatalogueIndicatorType(bool val)
+		{
+			return new CatalogueIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

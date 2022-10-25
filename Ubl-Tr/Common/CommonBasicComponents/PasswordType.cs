@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Password", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PasswordType : TextType1
     {
-    }
+		public static implicit operator PasswordType(string val)
+		{
+			return new PasswordType
+			{
+				Value = val
+			};
+		}
+	}
 }

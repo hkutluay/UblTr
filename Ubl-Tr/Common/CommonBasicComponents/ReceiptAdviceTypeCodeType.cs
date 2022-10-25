@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReceiptAdviceTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReceiptAdviceTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator ReceiptAdviceTypeCodeType(string val)
+		{
+			return new ReceiptAdviceTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

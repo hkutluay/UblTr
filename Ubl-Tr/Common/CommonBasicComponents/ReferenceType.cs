@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Reference", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReferenceType : TextType1
     {
-    }
+		public static implicit operator ReferenceType(string val)
+		{
+			return new ReferenceType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OrderableUnitFactorRate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OrderableUnitFactorRateType : RateType
     {
-    }
+		public static implicit operator OrderableUnitFactorRateType(decimal val)
+		{
+			return new OrderableUnitFactorRateType
+			{
+				Value = val
+			};
+		}
+	}
 }

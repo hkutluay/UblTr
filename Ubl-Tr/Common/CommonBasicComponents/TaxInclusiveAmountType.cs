@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TaxInclusiveAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TaxInclusiveAmountType : AmountType1
     {
-    }
+		public static implicit operator TaxInclusiveAmountType(decimal val)
+		{
+			return new TaxInclusiveAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

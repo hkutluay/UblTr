@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EndDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EndDateType : DateType
     {
-    }
+		public static implicit operator EndDateType(System.DateTime val)
+		{
+			return new EndDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

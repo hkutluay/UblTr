@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DamageRemarks", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DamageRemarksType : TextType1
     {
-    }
+		public static implicit operator DamageRemarksType(string val)
+		{
+			return new DamageRemarksType
+			{
+				Value = val
+			};
+		}
+	}
 }

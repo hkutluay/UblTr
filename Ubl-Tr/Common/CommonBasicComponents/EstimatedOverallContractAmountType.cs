@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EstimatedOverallContractAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EstimatedOverallContractAmountType : AmountType1
     {
-    }
+		public static implicit operator EstimatedOverallContractAmountType(decimal val)
+		{
+			return new EstimatedOverallContractAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

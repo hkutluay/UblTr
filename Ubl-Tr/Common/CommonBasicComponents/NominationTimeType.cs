@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("NominationTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class NominationTimeType : TimeType
     {
-    }
+		public static implicit operator NominationTimeType(System.DateTime val)
+		{
+			return new NominationTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

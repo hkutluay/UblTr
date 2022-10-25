@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FreeOnBoardValueAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FreeOnBoardValueAmountType : AmountType1
     {
-    }
+		public static implicit operator FreeOnBoardValueAmountType(decimal val)
+		{
+			return new FreeOnBoardValueAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

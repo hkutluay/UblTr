@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DeclaredCustomsValueAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DeclaredCustomsValueAmountType : AmountType1
     {
-    }
+		public static implicit operator DeclaredCustomsValueAmountType(decimal val)
+		{
+			return new DeclaredCustomsValueAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

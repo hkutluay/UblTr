@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DebitLineAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DebitLineAmountType : AmountType1
     {
-    }
+		public static implicit operator DebitLineAmountType(decimal val)
+		{
+			return new DebitLineAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FreightForwarderAssignedID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FreightForwarderAssignedIDType : IdentifierType1
     {
-    }
+		public static implicit operator FreightForwarderAssignedIDType(string val)
+		{
+			return new FreightForwarderAssignedIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

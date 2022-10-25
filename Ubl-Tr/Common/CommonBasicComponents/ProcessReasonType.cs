@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ProcessReason", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ProcessReasonType : TextType1
     {
-    }
+		public static implicit operator ProcessReasonType(string val)
+		{
+			return new ProcessReasonType
+			{
+				Value = val
+			};
+		}
+	}
 }

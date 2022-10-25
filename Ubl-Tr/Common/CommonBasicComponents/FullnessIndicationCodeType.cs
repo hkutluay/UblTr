@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FullnessIndicationCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FullnessIndicationCodeType : CodeType1
     {
-    }
+		public static implicit operator FullnessIndicationCodeType(string val)
+		{
+			return new FullnessIndicationCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

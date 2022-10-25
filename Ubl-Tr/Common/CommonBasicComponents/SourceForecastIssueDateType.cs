@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SourceForecastIssueDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SourceForecastIssueDateType : DateType
     {
-    }
+		public static implicit operator SourceForecastIssueDateType(System.DateTime val)
+		{
+			return new SourceForecastIssueDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ValidationResultCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ValidationResultCodeType : CodeType1
     {
-    }
+		public static implicit operator ValidationResultCodeType(string val)
+		{
+			return new ValidationResultCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

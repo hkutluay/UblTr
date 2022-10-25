@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ConsumersEnergyLevelCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ConsumersEnergyLevelCodeType : CodeType1
     {
-    }
+		public static implicit operator ConsumersEnergyLevelCodeType(string val)
+		{
+			return new ConsumersEnergyLevelCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

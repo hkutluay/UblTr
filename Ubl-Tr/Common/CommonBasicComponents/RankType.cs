@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Rank", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RankType : TextType1
     {
-    }
+		public static implicit operator RankType(string val)
+		{
+			return new RankType
+			{
+				Value = val
+			};
+		}
+	}
 }

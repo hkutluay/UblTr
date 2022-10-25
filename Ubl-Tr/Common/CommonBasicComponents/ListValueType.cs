@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ListValue", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ListValueType : TextType1
     {
-    }
+		public static implicit operator ListValueType(string val)
+		{
+			return new ListValueType
+			{
+				Value = val
+			};
+		}
+	}
 }

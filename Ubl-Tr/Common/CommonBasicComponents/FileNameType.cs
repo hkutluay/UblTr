@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FileName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FileNameType : NameType
     {
-    }
+		public static implicit operator FileNameType(string val)
+		{
+			return new FileNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

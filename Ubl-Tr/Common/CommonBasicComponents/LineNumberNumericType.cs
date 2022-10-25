@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LineNumberNumeric", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LineNumberNumericType : NumericType1
     {
-    }
+		public static implicit operator LineNumberNumericType(decimal val)
+		{
+			return new LineNumberNumericType
+			{
+				Value = val
+			};
+		}
+	}
 }

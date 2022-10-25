@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ExtensionReasonCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2", IsNullable = false)]
     public partial class ExtensionReasonCodeType : CodeType1
     {
-    }
+		public static implicit operator ExtensionReasonCodeType(string val)
+		{
+			return new ExtensionReasonCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

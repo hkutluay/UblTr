@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TareWeightMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TareWeightMeasureType : MeasureType1
     {
-    }
+		public static implicit operator TareWeightMeasureType(decimal val)
+		{
+			return new TareWeightMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

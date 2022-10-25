@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Comment", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CommentType : TextType1
     {
-    }
+		public static implicit operator CommentType(string val)
+		{
+			return new CommentType
+			{
+				Value = val
+			};
+		}
+	}
 }

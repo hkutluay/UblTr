@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EstimatedDespatchTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EstimatedDespatchTimeType : TimeType
     {
-    }
+		public static implicit operator EstimatedDespatchTimeType(System.DateTime val)
+		{
+			return new EstimatedDespatchTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

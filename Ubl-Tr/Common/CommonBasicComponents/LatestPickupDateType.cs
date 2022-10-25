@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LatestPickupDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LatestPickupDateType : DateType
     {
-    }
+		public static implicit operator LatestPickupDateType(System.DateTime val)
+		{
+			return new LatestPickupDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

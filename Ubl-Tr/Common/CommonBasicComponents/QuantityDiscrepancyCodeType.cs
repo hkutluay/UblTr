@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("QuantityDiscrepancyCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class QuantityDiscrepancyCodeType : CodeType1
     {
-    }
+		public static implicit operator QuantityDiscrepancyCodeType(string val)
+		{
+			return new QuantityDiscrepancyCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ProfileID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ProfileIDType : IdentifierType1
     {
-    }
+		public static implicit operator ProfileIDType(string val)
+		{
+			return new ProfileIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

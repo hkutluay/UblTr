@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Rate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RateType1 : RateType
     {
+        public static implicit operator RateType1(decimal val)
+        {
+            return new RateType1
+            {
+                Value = val
+            };
+        }
     }
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EmployeeQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EmployeeQuantityType : QuantityType1
     {
-    }
+		public static implicit operator EmployeeQuantityType(decimal val)
+		{
+			return new EmployeeQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

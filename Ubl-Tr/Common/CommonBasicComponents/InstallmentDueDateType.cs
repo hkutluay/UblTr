@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("InstallmentDueDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class InstallmentDueDateType : DateType
     {
-    }
+		public static implicit operator InstallmentDueDateType(System.DateTime val)
+		{
+			return new InstallmentDueDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ParentDocumentLineReferenceID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ParentDocumentLineReferenceIDType : IdentifierType1
     {
-    }
+		public static implicit operator ParentDocumentLineReferenceIDType(string val)
+		{
+			return new ParentDocumentLineReferenceIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

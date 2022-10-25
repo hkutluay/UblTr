@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LegalReference", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LegalReferenceType : TextType1
     {
-    }
+		public static implicit operator LegalReferenceType(string val)
+		{
+			return new LegalReferenceType
+			{
+				Value = val
+			};
+		}
+	}
 }

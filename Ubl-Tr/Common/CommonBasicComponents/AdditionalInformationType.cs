@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AdditionalInformation", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AdditionalInformationType : TextType1
     {
-    }
+		public static implicit operator AdditionalInformationType(string val)
+		{
+			return new AdditionalInformationType
+			{
+				Value = val
+			};
+		}
+	}
 }

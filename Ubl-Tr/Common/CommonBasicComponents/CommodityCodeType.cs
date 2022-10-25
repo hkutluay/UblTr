@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CommodityCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CommodityCodeType : CodeType1
     {
-    }
+		public static implicit operator CommodityCodeType(string val)
+		{
+			return new CommodityCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ExpectedOperatorQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ExpectedOperatorQuantityType : QuantityType1
     {
-    }
+		public static implicit operator ExpectedOperatorQuantityType(decimal val)
+		{
+			return new ExpectedOperatorQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

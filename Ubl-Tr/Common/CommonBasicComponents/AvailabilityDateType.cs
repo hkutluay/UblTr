@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AvailabilityDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AvailabilityDateType : DateType
     {
-    }
+		public static implicit operator AvailabilityDateType(System.DateTime val)
+		{
+			return new AvailabilityDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

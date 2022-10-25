@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LicensePlateID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LicensePlateIDType : IdentifierType1
     {
-    }
+		public static implicit operator LicensePlateIDType(string val)
+		{
+			return new LicensePlateIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

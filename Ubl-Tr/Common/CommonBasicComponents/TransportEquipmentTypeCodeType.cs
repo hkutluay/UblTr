@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TransportEquipmentTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TransportEquipmentTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator TransportEquipmentTypeCodeType(string val)
+		{
+			return new TransportEquipmentTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

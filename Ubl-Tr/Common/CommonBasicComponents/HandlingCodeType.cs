@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("HandlingCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class HandlingCodeType : CodeType1
     {
-    }
+		public static implicit operator HandlingCodeType(string val)
+		{
+			return new HandlingCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

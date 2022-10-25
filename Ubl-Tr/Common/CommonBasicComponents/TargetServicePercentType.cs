@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TargetServicePercent", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TargetServicePercentType : PercentType
     {
-    }
+		public static implicit operator TargetServicePercentType(decimal val)
+		{
+			return new TargetServicePercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

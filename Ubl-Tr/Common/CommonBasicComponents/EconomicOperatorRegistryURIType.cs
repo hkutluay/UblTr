@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EconomicOperatorRegistryURI", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EconomicOperatorRegistryURIType : IdentifierType1
     {
-    }
+		public static implicit operator EconomicOperatorRegistryURIType(string val)
+		{
+			return new EconomicOperatorRegistryURIType
+			{
+				Value = val
+			};
+		}
+	}
 }

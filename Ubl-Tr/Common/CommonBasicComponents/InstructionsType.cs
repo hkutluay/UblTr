@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Instructions", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class InstructionsType : TextType1
     {
-    }
+		public static implicit operator InstructionsType(string val)
+		{
+			return new InstructionsType
+			{
+				Value = val
+			};
+		}
+	}
 }

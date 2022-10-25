@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SettlementDiscountAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SettlementDiscountAmountType : AmountType1
     {
-    }
+		public static implicit operator SettlementDiscountAmountType(decimal val)
+		{
+			return new SettlementDiscountAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

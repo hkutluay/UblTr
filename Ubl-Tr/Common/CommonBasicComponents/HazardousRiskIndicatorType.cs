@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("HazardousRiskIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class HazardousRiskIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator HazardousRiskIndicatorType(bool val)
+		{
+			return new HazardousRiskIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

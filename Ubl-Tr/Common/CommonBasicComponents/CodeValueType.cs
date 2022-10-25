@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CodeValue", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CodeValueType : TextType1
     {
-    }
+		public static implicit operator CodeValueType(string val)
+		{
+			return new CodeValueType
+			{
+				Value = val
+			};
+		}
+	}
 }

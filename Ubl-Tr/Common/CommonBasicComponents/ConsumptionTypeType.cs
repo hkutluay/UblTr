@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ConsumptionType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ConsumptionTypeType : TextType1
     {
-    }
+		public static implicit operator ConsumptionTypeType(string val)
+		{
+			return new ConsumptionTypeType
+			{
+				Value = val
+			};
+		}
+	}
 }

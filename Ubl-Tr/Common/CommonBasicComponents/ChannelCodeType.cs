@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ChannelCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ChannelCodeType : CodeType1
     {
-    }
+		public static implicit operator ChannelCodeType(string val)
+		{
+			return new ChannelCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

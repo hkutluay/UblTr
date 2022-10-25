@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PostEventNotificationDurationMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PostEventNotificationDurationMeasureType : MeasureType1
     {
-    }
+		public static implicit operator PostEventNotificationDurationMeasureType(decimal val)
+		{
+			return new PostEventNotificationDurationMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

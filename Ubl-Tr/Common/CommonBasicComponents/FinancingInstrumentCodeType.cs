@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FinancingInstrumentCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FinancingInstrumentCodeType : CodeType1
     {
-    }
+		public static implicit operator FinancingInstrumentCodeType(string val)
+		{
+			return new FinancingInstrumentCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

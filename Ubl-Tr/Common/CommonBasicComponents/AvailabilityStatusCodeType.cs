@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AvailabilityStatusCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AvailabilityStatusCodeType : CodeType1
     {
-    }
+		public static implicit operator AvailabilityStatusCodeType(string val)
+		{
+			return new AvailabilityStatusCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

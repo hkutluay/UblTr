@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LongitudeDirectionCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LongitudeDirectionCodeType : CodeType1
     {
-    }
+		public static implicit operator LongitudeDirectionCodeType(string val)
+		{
+			return new LongitudeDirectionCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

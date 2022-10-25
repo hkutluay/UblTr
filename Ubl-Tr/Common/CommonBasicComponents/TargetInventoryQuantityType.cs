@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TargetInventoryQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TargetInventoryQuantityType : QuantityType1
     {
-    }
+		public static implicit operator TargetInventoryQuantityType(decimal val)
+		{
+			return new TargetInventoryQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

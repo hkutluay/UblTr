@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SubmissionMethodCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SubmissionMethodCodeType : CodeType1
     {
-    }
+		public static implicit operator SubmissionMethodCodeType(string val)
+		{
+			return new SubmissionMethodCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

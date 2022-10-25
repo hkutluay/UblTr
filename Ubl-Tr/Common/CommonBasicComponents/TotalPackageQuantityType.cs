@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TotalPackageQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TotalPackageQuantityType : QuantityType1
     {
-    }
+		public static implicit operator TotalPackageQuantityType(decimal val)
+		{
+			return new TotalPackageQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

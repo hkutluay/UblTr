@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DocumentCurrencyCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DocumentCurrencyCodeType : CodeType1
     {
-    }
+		public static implicit operator DocumentCurrencyCodeType(string val)
+		{
+			return new DocumentCurrencyCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

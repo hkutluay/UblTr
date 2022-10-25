@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ForecastPurposeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ForecastPurposeCodeType : CodeType1
     {
-    }
+		public static implicit operator ForecastPurposeCodeType(string val)
+		{
+			return new ForecastPurposeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

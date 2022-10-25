@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Channel", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ChannelType : TextType1
     {
-    }
+		public static implicit operator ChannelType(string val)
+		{
+			return new ChannelType
+			{
+				Value = val
+			};
+		}
+	}
 }

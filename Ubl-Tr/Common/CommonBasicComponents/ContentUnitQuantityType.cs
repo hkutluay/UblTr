@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ContentUnitQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ContentUnitQuantityType : QuantityType1
     {
-    }
+		public static implicit operator ContentUnitQuantityType(decimal val)
+		{
+			return new ContentUnitQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

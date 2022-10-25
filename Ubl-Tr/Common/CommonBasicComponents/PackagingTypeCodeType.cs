@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PackagingTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PackagingTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator PackagingTypeCodeType(string val)
+		{
+			return new PackagingTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

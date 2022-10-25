@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TaxPointDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TaxPointDateType : DateType
     {
-    }
+		public static implicit operator TaxPointDateType(System.DateTime val)
+		{
+			return new TaxPointDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

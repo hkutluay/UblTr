@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DutyCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DutyCodeType : CodeType1
     {
-    }
+		public static implicit operator DutyCodeType(string val)
+		{
+			return new DutyCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

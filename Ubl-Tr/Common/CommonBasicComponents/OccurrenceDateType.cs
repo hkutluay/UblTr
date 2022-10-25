@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OccurrenceDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OccurrenceDateType : DateType
     {
-    }
+		public static implicit operator OccurrenceDateType(System.DateTime val)
+		{
+			return new OccurrenceDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

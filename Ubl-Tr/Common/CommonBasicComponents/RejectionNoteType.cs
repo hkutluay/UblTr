@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RejectionNote", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RejectionNoteType : TextType1
     {
-    }
+		public static implicit operator RejectionNoteType(string val)
+		{
+			return new RejectionNoteType
+			{
+				Value = val
+			};
+		}
+	}
 }

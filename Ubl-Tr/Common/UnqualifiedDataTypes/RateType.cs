@@ -12,5 +12,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class RateType : NumericType
     {
-    }
+		public static implicit operator RateType(decimal val)
+		{
+			return new RateType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BalanceBroughtForwardIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BalanceBroughtForwardIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator BalanceBroughtForwardIndicatorType(bool val)
+		{
+			return new BalanceBroughtForwardIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

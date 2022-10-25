@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ChangeConditions", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ChangeConditionsType : TextType1
     {
-    }
+		public static implicit operator ChangeConditionsType(string val)
+		{
+			return new ChangeConditionsType
+			{
+				Value = val
+			};
+		}
+	}
 }

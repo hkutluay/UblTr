@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OrderIntervalDaysNumeric", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OrderIntervalDaysNumericType : NumericType1
     {
-    }
+		public static implicit operator OrderIntervalDaysNumericType(decimal val)
+		{
+			return new OrderIntervalDaysNumericType
+			{
+				Value = val
+			};
+		}
+	}
 }

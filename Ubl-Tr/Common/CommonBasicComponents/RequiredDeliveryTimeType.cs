@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RequiredDeliveryTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RequiredDeliveryTimeType : TimeType
     {
-    }
+		public static implicit operator RequiredDeliveryTimeType(System.DateTime val)
+		{
+			return new RequiredDeliveryTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

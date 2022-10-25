@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DocumentID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DocumentIDType : IdentifierType1
     {
-    }
+		public static implicit operator DocumentIDType(string val)
+		{
+			return new DocumentIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

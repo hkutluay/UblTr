@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LocationTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LocationTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator LocationTypeCodeType(string val)
+		{
+			return new LocationTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

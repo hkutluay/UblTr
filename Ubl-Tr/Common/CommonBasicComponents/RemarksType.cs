@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Remarks", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RemarksType : TextType1
     {
-    }
+		public static implicit operator RemarksType(string val)
+		{
+			return new RemarksType
+			{
+				Value = val
+			};
+		}
+	}
 }

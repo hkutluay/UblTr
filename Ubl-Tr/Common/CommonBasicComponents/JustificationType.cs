@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Justification", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class JustificationType : TextType1
     {
-    }
+		public static implicit operator JustificationType(string val)
+		{
+			return new JustificationType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ContractedCarrierAssignedID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ContractedCarrierAssignedIDType : IdentifierType1
     {
-    }
+		public static implicit operator ContractedCarrierAssignedIDType(string val)
+		{
+			return new ContractedCarrierAssignedIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CallTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CallTimeType : TimeType
     {
-    }
+		public static implicit operator CallTimeType(System.DateTime val)
+		{
+			return new CallTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

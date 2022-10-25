@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PaidTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PaidTimeType : TimeType
     {
-    }
+		public static implicit operator PaidTimeType(System.DateTime val)
+		{
+			return new PaidTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

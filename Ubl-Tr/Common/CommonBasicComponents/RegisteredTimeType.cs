@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RegisteredTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RegisteredTimeType : TimeType
     {
-    }
+		public static implicit operator RegisteredTimeType(System.DateTime val)
+		{
+			return new RegisteredTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

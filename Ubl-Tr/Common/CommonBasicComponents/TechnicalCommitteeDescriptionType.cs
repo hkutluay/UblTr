@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TechnicalCommitteeDescription", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TechnicalCommitteeDescriptionType : TextType1
     {
-    }
+		public static implicit operator TechnicalCommitteeDescriptionType(string val)
+		{
+			return new TechnicalCommitteeDescriptionType
+			{
+				Value = val
+			};
+		}
+	}
 }

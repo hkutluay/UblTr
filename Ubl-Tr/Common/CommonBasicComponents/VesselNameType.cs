@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("VesselName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class VesselNameType : NameType
     {
-    }
+		public static implicit operator VesselNameType(string val)
+		{
+			return new VesselNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ResolutionDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ResolutionDateType : DateType
     {
-    }
+		public static implicit operator ResolutionDateType(System.DateTime val)
+		{
+			return new ResolutionDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

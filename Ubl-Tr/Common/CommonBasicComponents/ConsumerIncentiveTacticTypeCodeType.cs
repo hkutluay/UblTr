@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ConsumerIncentiveTacticTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ConsumerIncentiveTacticTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator ConsumerIncentiveTacticTypeCodeType(string val)
+		{
+			return new ConsumerIncentiveTacticTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

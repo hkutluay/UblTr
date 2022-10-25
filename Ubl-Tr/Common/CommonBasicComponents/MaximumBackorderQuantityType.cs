@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MaximumBackorderQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MaximumBackorderQuantityType : QuantityType1
     {
-    }
+		public static implicit operator MaximumBackorderQuantityType(decimal val)
+		{
+			return new MaximumBackorderQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

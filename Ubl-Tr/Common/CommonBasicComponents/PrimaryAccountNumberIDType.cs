@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PrimaryAccountNumberID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PrimaryAccountNumberIDType : IdentifierType1
     {
-    }
+		public static implicit operator PrimaryAccountNumberIDType(string val)
+		{
+			return new PrimaryAccountNumberIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

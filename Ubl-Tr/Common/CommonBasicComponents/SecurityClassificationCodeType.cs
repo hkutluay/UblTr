@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SecurityClassificationCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SecurityClassificationCodeType : CodeType1
     {
-    }
+		public static implicit operator SecurityClassificationCodeType(string val)
+		{
+			return new SecurityClassificationCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

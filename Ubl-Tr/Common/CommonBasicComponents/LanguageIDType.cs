@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LanguageID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LanguageIDType : IdentifierType1
     {
-    }
+		public static implicit operator LanguageIDType(string val)
+		{
+			return new LanguageIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OperatingYearsQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OperatingYearsQuantityType : QuantityType1
     {
-    }
+		public static implicit operator OperatingYearsQuantityType(decimal val)
+		{
+			return new OperatingYearsQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

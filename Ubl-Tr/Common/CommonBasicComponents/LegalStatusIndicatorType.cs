@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LegalStatusIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LegalStatusIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator LegalStatusIndicatorType(bool val)
+		{
+			return new LegalStatusIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

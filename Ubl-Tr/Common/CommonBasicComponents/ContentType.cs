@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Content", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ContentType : TextType1
     {
-    }
+		public static implicit operator ContentType(string val)
+		{
+			return new ContentType
+			{
+				Value = val
+			};
+		}
+	}
 }

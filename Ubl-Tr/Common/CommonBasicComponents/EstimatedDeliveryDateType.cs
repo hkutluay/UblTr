@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EstimatedDeliveryDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EstimatedDeliveryDateType : DateType
     {
-    }
+		public static implicit operator EstimatedDeliveryDateType(System.DateTime val)
+		{
+			return new EstimatedDeliveryDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MinimumOrderQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MinimumOrderQuantityType : QuantityType1
     {
-    }
+		public static implicit operator MinimumOrderQuantityType(decimal val)
+		{
+			return new MinimumOrderQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

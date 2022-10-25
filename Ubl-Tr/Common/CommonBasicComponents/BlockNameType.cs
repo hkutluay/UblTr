@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BlockName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BlockNameType : NameType
     {
-    }
+		public static implicit operator BlockNameType(string val)
+		{
+			return new BlockNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

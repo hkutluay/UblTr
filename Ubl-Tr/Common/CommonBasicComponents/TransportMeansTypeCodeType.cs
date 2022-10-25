@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TransportMeansTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TransportMeansTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator TransportMeansTypeCodeType(string val)
+		{
+			return new TransportMeansTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

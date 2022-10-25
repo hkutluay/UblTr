@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AliasName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AliasNameType : NameType
     {
-    }
+		public static implicit operator AliasNameType(string val)
+		{
+			return new AliasNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

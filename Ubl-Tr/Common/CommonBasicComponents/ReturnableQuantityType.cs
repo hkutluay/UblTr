@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReturnableQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReturnableQuantityType : QuantityType1
     {
-    }
+		public static implicit operator ReturnableQuantityType(decimal val)
+		{
+			return new ReturnableQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

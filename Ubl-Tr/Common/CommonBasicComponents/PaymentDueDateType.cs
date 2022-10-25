@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PaymentDueDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PaymentDueDateType : DateType
     {
-    }
+		public static implicit operator PaymentDueDateType(System.DateTime val)
+		{
+			return new PaymentDueDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

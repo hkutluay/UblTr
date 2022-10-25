@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TariffClassCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TariffClassCodeType : CodeType1
     {
-    }
+		public static implicit operator TariffClassCodeType(string val)
+		{
+			return new TariffClassCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

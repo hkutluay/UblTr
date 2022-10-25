@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EnvironmentalEmissionTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EnvironmentalEmissionTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator EnvironmentalEmissionTypeCodeType(string val)
+		{
+			return new EnvironmentalEmissionTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

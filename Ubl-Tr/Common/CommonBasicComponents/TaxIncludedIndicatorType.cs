@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TaxIncludedIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TaxIncludedIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator TaxIncludedIndicatorType(bool val)
+		{
+			return new TaxIncludedIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

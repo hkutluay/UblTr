@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AnimalFoodIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AnimalFoodIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator AnimalFoodIndicatorType(bool val)
+		{
+			return new AnimalFoodIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

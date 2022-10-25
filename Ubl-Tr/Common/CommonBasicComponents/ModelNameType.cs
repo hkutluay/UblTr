@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ModelName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ModelNameType : NameType
     {
-    }
+		public static implicit operator ModelNameType(string val)
+		{
+			return new ModelNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

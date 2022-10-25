@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ResolutionCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ResolutionCodeType : CodeType1
     {
-    }
+		public static implicit operator ResolutionCodeType(string val)
+		{
+			return new ResolutionCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

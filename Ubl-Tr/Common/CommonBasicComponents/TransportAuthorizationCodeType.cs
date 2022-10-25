@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TransportAuthorizationCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TransportAuthorizationCodeType : CodeType1
     {
-    }
+		public static implicit operator TransportAuthorizationCodeType(string val)
+		{
+			return new TransportAuthorizationCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

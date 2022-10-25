@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TaxExemptionReasonCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TaxExemptionReasonCodeType : CodeType1
     {
-    }
+		public static implicit operator TaxExemptionReasonCodeType(string val)
+		{
+			return new TaxExemptionReasonCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

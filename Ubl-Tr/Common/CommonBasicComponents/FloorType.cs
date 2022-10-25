@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Floor", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FloorType : TextType1
     {
-    }
+		public static implicit operator FloorType(string val)
+		{
+			return new FloorType
+			{
+				Value = val
+			};
+		}
+	}
 }

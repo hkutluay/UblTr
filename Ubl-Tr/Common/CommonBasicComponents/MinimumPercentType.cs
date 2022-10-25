@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MinimumPercent", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MinimumPercentType : PercentType
     {
-    }
+		public static implicit operator MinimumPercentType(decimal val)
+		{
+			return new MinimumPercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

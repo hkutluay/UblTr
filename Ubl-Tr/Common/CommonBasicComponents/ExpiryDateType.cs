@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ExpiryDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ExpiryDateType : DateType
     {
-    }
+		public static implicit operator ExpiryDateType(System.DateTime val)
+		{
+			return new ExpiryDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RetailEventStatusCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RetailEventStatusCodeType : CodeType1
     {
-    }
+		public static implicit operator RetailEventStatusCodeType(string val)
+		{
+			return new RetailEventStatusCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

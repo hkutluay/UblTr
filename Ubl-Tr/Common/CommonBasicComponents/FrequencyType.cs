@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Frequency", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FrequencyType : TextType1
     {
-    }
+		public static implicit operator FrequencyType(string val)
+		{
+			return new FrequencyType
+			{
+				Value = val
+			};
+		}
+	}
 }

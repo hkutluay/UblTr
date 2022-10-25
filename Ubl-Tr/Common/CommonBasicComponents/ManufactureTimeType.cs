@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ManufactureTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ManufactureTimeType : TimeType
     {
-    }
+		public static implicit operator ManufactureTimeType(System.DateTime val)
+		{
+			return new ManufactureTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

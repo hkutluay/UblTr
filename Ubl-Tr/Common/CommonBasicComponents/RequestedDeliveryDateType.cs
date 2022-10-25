@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RequestedDeliveryDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RequestedDeliveryDateType : DateType
     {
-    }
+		public static implicit operator RequestedDeliveryDateType(System.DateTime val)
+		{
+			return new RequestedDeliveryDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

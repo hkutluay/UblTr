@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BuildingNumber", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BuildingNumberType : TextType1
     {
-    }
+		public static implicit operator BuildingNumberType(string val)
+		{
+			return new BuildingNumberType
+			{
+				Value = val
+			};
+		}
+	}
 }

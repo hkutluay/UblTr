@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RailCarID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RailCarIDType : IdentifierType1
     {
-    }
+		public static implicit operator RailCarIDType(string val)
+		{
+			return new RailCarIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

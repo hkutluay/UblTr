@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LowerOrangeHazardPlacardID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LowerOrangeHazardPlacardIDType : IdentifierType1
     {
-    }
+		public static implicit operator LowerOrangeHazardPlacardIDType(string val)
+		{
+			return new LowerOrangeHazardPlacardIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

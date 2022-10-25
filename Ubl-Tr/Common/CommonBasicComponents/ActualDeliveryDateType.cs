@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ActualDeliveryDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ActualDeliveryDateType : DateType
     {
-    }
+		public static implicit operator ActualDeliveryDateType(System.DateTime val)
+		{
+			return new ActualDeliveryDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

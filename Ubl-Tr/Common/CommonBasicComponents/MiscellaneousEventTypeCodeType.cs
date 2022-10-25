@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MiscellaneousEventTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MiscellaneousEventTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator MiscellaneousEventTypeCodeType(string val)
+		{
+			return new MiscellaneousEventTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

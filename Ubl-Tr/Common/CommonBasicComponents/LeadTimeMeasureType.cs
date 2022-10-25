@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LeadTimeMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LeadTimeMeasureType : MeasureType1
     {
-    }
+		public static implicit operator LeadTimeMeasureType(decimal val)
+		{
+			return new LeadTimeMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

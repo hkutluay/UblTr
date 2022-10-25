@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("NameSuffix", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class NameSuffixType : TextType1
     {
-    }
+		public static implicit operator NameSuffixType(string val)
+		{
+			return new NameSuffixType
+			{
+				Value = val
+			};
+		}
+	}
 }

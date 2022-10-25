@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BulkCargoIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BulkCargoIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator BulkCargoIndicatorType(bool val)
+		{
+			return new BulkCargoIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

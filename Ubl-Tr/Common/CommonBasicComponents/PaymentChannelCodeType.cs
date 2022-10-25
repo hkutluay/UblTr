@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PaymentChannelCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PaymentChannelCodeType : CodeType1
     {
-    }
+		public static implicit operator PaymentChannelCodeType(string val)
+		{
+			return new PaymentChannelCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

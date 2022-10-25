@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DeclarationTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DeclarationTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator DeclarationTypeCodeType(string val)
+		{
+			return new DeclarationTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

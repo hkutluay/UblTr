@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("NominationDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class NominationDateType : DateType
     {
-    }
+		public static implicit operator NominationDateType(System.DateTime val)
+		{
+			return new NominationDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

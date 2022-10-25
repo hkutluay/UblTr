@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SalesOrderID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SalesOrderIDType : IdentifierType1
     {
-    }
+		public static implicit operator SalesOrderIDType(string val)
+		{
+			return new SalesOrderIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

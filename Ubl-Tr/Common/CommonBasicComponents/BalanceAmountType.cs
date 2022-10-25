@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BalanceAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BalanceAmountType : AmountType1
     {
-    }
+		public static implicit operator BalanceAmountType(decimal val)
+		{
+			return new BalanceAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

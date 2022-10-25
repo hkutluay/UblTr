@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CustomerReference", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CustomerReferenceType : TextType1
     {
-    }
+		public static implicit operator CustomerReferenceType(string val)
+		{
+			return new CustomerReferenceType
+			{
+				Value = val
+			};
+		}
+	}
 }

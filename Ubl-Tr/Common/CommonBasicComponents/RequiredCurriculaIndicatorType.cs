@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RequiredCurriculaIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RequiredCurriculaIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator RequiredCurriculaIndicatorType(bool val)
+		{
+			return new RequiredCurriculaIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

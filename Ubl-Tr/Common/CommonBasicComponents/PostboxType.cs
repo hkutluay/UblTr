@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Postbox", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PostboxType : TextType1
     {
-    }
+		public static implicit operator PostboxType(string val)
+		{
+			return new PostboxType
+			{
+				Value = val
+			};
+		}
+	}
 }

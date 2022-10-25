@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ResponseCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ResponseCodeType : CodeType1
     {
-    }
+		public static implicit operator ResponseCodeType(string val)
+		{
+			return new ResponseCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

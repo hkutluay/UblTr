@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SettlementDiscountPercent", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SettlementDiscountPercentType : PercentType
     {
-    }
+		public static implicit operator SettlementDiscountPercentType(decimal val)
+		{
+			return new SettlementDiscountPercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

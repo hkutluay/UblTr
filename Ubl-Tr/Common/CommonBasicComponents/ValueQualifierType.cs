@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ValueQualifier", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ValueQualifierType : TextType1
     {
-    }
+		public static implicit operator ValueQualifierType(string val)
+		{
+			return new ValueQualifierType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TransportEmergencyCardCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TransportEmergencyCardCodeType : CodeType1
     {
-    }
+		public static implicit operator TransportEmergencyCardCodeType(string val)
+		{
+			return new TransportEmergencyCardCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

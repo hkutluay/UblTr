@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("UNDGCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class UNDGCodeType : CodeType1
     {
-    }
+		public static implicit operator UNDGCodeType(string val)
+		{
+			return new UNDGCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

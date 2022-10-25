@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("InsuranceValueAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class InsuranceValueAmountType : AmountType1
     {
-    }
+		public static implicit operator InsuranceValueAmountType(decimal val)
+		{
+			return new InsuranceValueAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

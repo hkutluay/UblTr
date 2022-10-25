@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SealIssuerTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SealIssuerTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator SealIssuerTypeCodeType(string val)
+		{
+			return new SealIssuerTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

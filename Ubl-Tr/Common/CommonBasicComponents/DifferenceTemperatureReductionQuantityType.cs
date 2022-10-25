@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DifferenceTemperatureReductionQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DifferenceTemperatureReductionQuantityType : QuantityType1
     {
-    }
+		public static implicit operator DifferenceTemperatureReductionQuantityType(decimal val)
+		{
+			return new DifferenceTemperatureReductionQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

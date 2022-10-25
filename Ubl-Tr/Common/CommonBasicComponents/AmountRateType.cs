@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AmountRate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AmountRateType : RateType
     {
-    }
+		public static implicit operator AmountRateType(decimal val)
+		{
+			return new AmountRateType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PreviousJobID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PreviousJobIDType : IdentifierType1
     {
-    }
+		public static implicit operator PreviousJobIDType(string val)
+		{
+			return new PreviousJobIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

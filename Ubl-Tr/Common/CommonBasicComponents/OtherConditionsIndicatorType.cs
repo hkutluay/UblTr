@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OtherConditionsIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OtherConditionsIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator OtherConditionsIndicatorType(bool val)
+		{
+			return new OtherConditionsIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

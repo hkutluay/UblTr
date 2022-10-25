@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MaximumValue", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MaximumValueType : TextType1
     {
-    }
+		public static implicit operator MaximumValueType(string val)
+		{
+			return new MaximumValueType
+			{
+				Value = val
+			};
+		}
+	}
 }

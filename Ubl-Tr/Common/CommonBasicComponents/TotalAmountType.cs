@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TotalAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TotalAmountType : AmountType1
     {
-    }
+		public static implicit operator TotalAmountType(decimal val)
+		{
+			return new TotalAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

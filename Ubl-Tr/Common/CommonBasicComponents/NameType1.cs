@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Name", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class NameType1 : NameType
     {
+        public static implicit operator NameType1(string val)
+        {
+            return new NameType1
+            {
+                Value = val
+            };
+        }
     }
 }

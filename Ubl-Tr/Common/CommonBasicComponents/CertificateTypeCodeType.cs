@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CertificateTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CertificateTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator CertificateTypeCodeType(string val)
+		{
+			return new CertificateTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

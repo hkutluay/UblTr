@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LocaleCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LocaleCodeType : CodeType1
     {
-    }
+		public static implicit operator LocaleCodeType(string val)
+		{
+			return new LocaleCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

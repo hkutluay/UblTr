@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SizeTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SizeTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator SizeTypeCodeType(string val)
+		{
+			return new SizeTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

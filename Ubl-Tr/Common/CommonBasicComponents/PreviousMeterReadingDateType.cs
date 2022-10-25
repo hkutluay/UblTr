@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PreviousMeterReadingDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PreviousMeterReadingDateType : DateType
     {
-    }
+		public static implicit operator PreviousMeterReadingDateType(System.DateTime val)
+		{
+			return new PreviousMeterReadingDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

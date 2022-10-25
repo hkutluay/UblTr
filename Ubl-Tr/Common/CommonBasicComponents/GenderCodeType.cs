@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("GenderCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class GenderCodeType : CodeType1
     {
-    }
+		public static implicit operator GenderCodeType(string val)
+		{
+			return new GenderCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PreferenceCriterionCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PreferenceCriterionCodeType : CodeType1
     {
-    }
+		public static implicit operator PreferenceCriterionCodeType(string val)
+		{
+			return new PreferenceCriterionCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

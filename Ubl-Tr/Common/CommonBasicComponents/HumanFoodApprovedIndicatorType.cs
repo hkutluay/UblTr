@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("HumanFoodApprovedIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class HumanFoodApprovedIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator HumanFoodApprovedIndicatorType(bool val)
+		{
+			return new HumanFoodApprovedIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

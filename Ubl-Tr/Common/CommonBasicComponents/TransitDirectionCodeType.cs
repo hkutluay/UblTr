@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TransitDirectionCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TransitDirectionCodeType : CodeType1
     {
-    }
+		public static implicit operator TransitDirectionCodeType(string val)
+		{
+			return new TransitDirectionCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

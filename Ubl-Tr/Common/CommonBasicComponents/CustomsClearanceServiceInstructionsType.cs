@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CustomsClearanceServiceInstructions", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CustomsClearanceServiceInstructionsType : TextType1
     {
-    }
+		public static implicit operator CustomsClearanceServiceInstructionsType(string val)
+		{
+			return new CustomsClearanceServiceInstructionsType
+			{
+				Value = val
+			};
+		}
+	}
 }

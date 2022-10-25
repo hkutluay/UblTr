@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ApprovalStatus", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ApprovalStatusType : TextType1
     {
-    }
+		public static implicit operator ApprovalStatusType(string val)
+		{
+			return new ApprovalStatusType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FollowupContractIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FollowupContractIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator FollowupContractIndicatorType(bool val)
+		{
+			return new FollowupContractIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

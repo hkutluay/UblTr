@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SummaryDescription", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SummaryDescriptionType : TextType1
     {
-    }
+		public static implicit operator SummaryDescriptionType(string val)
+		{
+			return new SummaryDescriptionType
+			{
+				Value = val
+			};
+		}
+	}
 }

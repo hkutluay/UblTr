@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TransportUserSpecialTerms", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TransportUserSpecialTermsType : TextType1
     {
-    }
+		public static implicit operator TransportUserSpecialTermsType(string val)
+		{
+			return new TransportUserSpecialTermsType
+			{
+				Value = val
+			};
+		}
+	}
 }

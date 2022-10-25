@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("JourneyID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class JourneyIDType : IdentifierType1
     {
-    }
+		public static implicit operator JourneyIDType(string val)
+		{
+			return new JourneyIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

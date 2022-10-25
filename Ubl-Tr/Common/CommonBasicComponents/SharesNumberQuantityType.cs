@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SharesNumberQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SharesNumberQuantityType : QuantityType1
     {
-    }
+		public static implicit operator SharesNumberQuantityType(decimal val)
+		{
+			return new SharesNumberQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

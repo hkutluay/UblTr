@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MathematicOperatorCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MathematicOperatorCodeType : CodeType1
     {
-    }
+		public static implicit operator MathematicOperatorCodeType(string val)
+		{
+			return new MathematicOperatorCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

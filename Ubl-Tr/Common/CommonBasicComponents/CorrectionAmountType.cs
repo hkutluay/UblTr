@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CorrectionAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CorrectionAmountType : AmountType1
     {
-    }
+		public static implicit operator CorrectionAmountType(decimal val)
+		{
+			return new CorrectionAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

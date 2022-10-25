@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LowTendersDescription", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LowTendersDescriptionType : TextType1
     {
-    }
+		public static implicit operator LowTendersDescriptionType(string val)
+		{
+			return new LowTendersDescriptionType
+			{
+				Value = val
+			};
+		}
+	}
 }

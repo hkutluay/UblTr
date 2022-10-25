@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("NatureCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class NatureCodeType : CodeType1
     {
-    }
+		public static implicit operator NatureCodeType(string val)
+		{
+			return new NatureCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

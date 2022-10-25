@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AdditionalConditions", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AdditionalConditionsType : TextType1
     {
-    }
+		public static implicit operator AdditionalConditionsType(string val)
+		{
+			return new AdditionalConditionsType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("URI", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class URIType : IdentifierType1
     {
-    }
+		public static implicit operator URIType(string val)
+		{
+			return new URIType
+			{
+				Value = val
+			};
+		}
+	}
 }

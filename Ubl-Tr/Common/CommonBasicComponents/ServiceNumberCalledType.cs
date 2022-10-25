@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ServiceNumberCalled", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ServiceNumberCalledType : TextType1
     {
-    }
+		public static implicit operator ServiceNumberCalledType(string val)
+		{
+			return new ServiceNumberCalledType
+			{
+				Value = val
+			};
+		}
+	}
 }

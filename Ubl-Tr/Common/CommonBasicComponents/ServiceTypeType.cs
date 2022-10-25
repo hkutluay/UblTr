@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ServiceType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ServiceTypeType : TextType1
     {
-    }
+		public static implicit operator ServiceTypeType(string val)
+		{
+			return new ServiceTypeType
+			{
+				Value = val
+			};
+		}
+	}
 }

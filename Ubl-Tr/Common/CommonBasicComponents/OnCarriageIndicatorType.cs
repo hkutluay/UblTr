@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OnCarriageIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OnCarriageIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator OnCarriageIndicatorType(bool val)
+		{
+			return new OnCarriageIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

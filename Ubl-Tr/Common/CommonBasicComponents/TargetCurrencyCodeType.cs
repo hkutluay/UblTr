@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TargetCurrencyCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TargetCurrencyCodeType : CodeType1
     {
-    }
+		public static implicit operator TargetCurrencyCodeType(string val)
+		{
+			return new TargetCurrencyCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TierRatePercent", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TierRatePercentType : PercentType
     {
-    }
+		public static implicit operator TierRatePercentType(decimal val)
+		{
+			return new TierRatePercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

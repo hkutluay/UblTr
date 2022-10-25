@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PrepaidPaymentReferenceID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PrepaidPaymentReferenceIDType : IdentifierType1
     {
-    }
+		public static implicit operator PrepaidPaymentReferenceIDType(string val)
+		{
+			return new PrepaidPaymentReferenceIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

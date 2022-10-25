@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CityName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CityNameType : NameType
     {
-    }
+		public static implicit operator CityNameType(string val)
+		{
+			return new CityNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

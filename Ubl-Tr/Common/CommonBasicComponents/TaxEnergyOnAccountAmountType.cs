@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TaxEnergyOnAccountAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TaxEnergyOnAccountAmountType : AmountType1
     {
-    }
+		public static implicit operator TaxEnergyOnAccountAmountType(decimal val)
+		{
+			return new TaxEnergyOnAccountAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

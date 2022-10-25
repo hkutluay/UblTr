@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DispositionCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DispositionCodeType : CodeType1
     {
-    }
+		public static implicit operator DispositionCodeType(string val)
+		{
+			return new DispositionCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

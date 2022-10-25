@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PackLevelCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PackLevelCodeType : CodeType1
     {
-    }
+		public static implicit operator PackLevelCodeType(string val)
+		{
+			return new PackLevelCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

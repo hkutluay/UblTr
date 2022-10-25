@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RegistrationID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RegistrationIDType : IdentifierType1
     {
-    }
+		public static implicit operator RegistrationIDType(string val)
+		{
+			return new RegistrationIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

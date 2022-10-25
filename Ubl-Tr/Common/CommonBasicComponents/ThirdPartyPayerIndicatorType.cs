@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ThirdPartyPayerIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ThirdPartyPayerIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator ThirdPartyPayerIndicatorType(bool val)
+		{
+			return new ThirdPartyPayerIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AdmissionCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AdmissionCodeType : CodeType1
     {
-    }
+		public static implicit operator AdmissionCodeType(string val)
+		{
+			return new AdmissionCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

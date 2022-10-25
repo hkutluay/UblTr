@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MonetaryScope", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MonetaryScopeType : TextType1
     {
-    }
+		public static implicit operator MonetaryScopeType(string val)
+		{
+			return new MonetaryScopeType
+			{
+				Value = val
+			};
+		}
+	}
 }

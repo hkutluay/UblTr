@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PartyCapacityAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PartyCapacityAmountType : AmountType1
     {
-    }
+		public static implicit operator PartyCapacityAmountType(decimal val)
+		{
+			return new PartyCapacityAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

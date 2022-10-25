@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AverageAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AverageAmountType : AmountType1
     {
-    }
+		public static implicit operator AverageAmountType(decimal val)
+		{
+			return new AverageAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

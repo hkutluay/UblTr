@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CapabilityTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CapabilityTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator CapabilityTypeCodeType(string val)
+		{
+			return new CapabilityTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

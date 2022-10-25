@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PrizeIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PrizeIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator PrizeIndicatorType(bool val)
+		{
+			return new PrizeIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

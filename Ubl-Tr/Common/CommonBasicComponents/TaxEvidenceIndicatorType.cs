@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TaxEvidenceIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TaxEvidenceIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator TaxEvidenceIndicatorType(bool val)
+		{
+			return new TaxEvidenceIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

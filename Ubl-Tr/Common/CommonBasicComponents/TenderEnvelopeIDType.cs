@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TenderEnvelopeID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TenderEnvelopeIDType : IdentifierType1
     {
-    }
+		public static implicit operator TenderEnvelopeIDType(string val)
+		{
+			return new TenderEnvelopeIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

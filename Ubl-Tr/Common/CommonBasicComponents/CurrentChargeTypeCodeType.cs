@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CurrentChargeTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CurrentChargeTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator CurrentChargeTypeCodeType(string val)
+		{
+			return new CurrentChargeTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

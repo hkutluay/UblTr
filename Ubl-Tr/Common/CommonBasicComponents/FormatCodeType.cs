@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FormatCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FormatCodeType : CodeType1
     {
-    }
+		public static implicit operator FormatCodeType(string val)
+		{
+			return new FormatCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

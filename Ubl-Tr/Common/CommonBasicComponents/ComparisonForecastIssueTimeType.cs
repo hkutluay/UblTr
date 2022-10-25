@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ComparisonForecastIssueTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ComparisonForecastIssueTimeType : TimeType
     {
-    }
+		public static implicit operator ComparisonForecastIssueTimeType(System.DateTime val)
+		{
+			return new ComparisonForecastIssueTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Title", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TitleType : TextType1
     {
-    }
+		public static implicit operator TitleType(string val)
+		{
+			return new TitleType
+			{
+				Value = val
+			};
+		}
+	}
 }

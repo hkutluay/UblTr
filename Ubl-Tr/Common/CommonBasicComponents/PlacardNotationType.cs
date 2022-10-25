@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PlacardNotation", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PlacardNotationType : TextType1
     {
-    }
+		public static implicit operator PlacardNotationType(string val)
+		{
+			return new PlacardNotationType
+			{
+				Value = val
+			};
+		}
+	}
 }

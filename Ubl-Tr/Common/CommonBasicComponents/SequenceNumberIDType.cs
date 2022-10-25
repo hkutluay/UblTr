@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SequenceNumberID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SequenceNumberIDType : IdentifierType1
     {
-    }
+		public static implicit operator SequenceNumberIDType(string val)
+		{
+			return new SequenceNumberIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

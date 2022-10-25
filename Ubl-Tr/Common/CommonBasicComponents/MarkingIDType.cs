@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MarkingID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MarkingIDType : IdentifierType1
     {
-    }
+		public static implicit operator MarkingIDType(string val)
+		{
+			return new MarkingIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

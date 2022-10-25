@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CalculationSequenceNumeric", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CalculationSequenceNumericType : NumericType1
     {
-    }
+		public static implicit operator CalculationSequenceNumericType(decimal val)
+		{
+			return new CalculationSequenceNumericType
+			{
+				Value = val
+			};
+		}
+	}
 }

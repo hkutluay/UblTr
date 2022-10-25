@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PackingMaterial", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PackingMaterialType : TextType1
     {
-    }
+		public static implicit operator PackingMaterialType(string val)
+		{
+			return new PackingMaterialType
+			{
+				Value = val
+			};
+		}
+	}
 }

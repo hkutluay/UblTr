@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MimeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MimeCodeType : CodeType1
     {
-    }
+		public static implicit operator MimeCodeType(string val)
+		{
+			return new MimeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

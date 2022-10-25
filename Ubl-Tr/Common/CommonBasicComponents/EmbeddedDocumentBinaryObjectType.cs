@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EmbeddedDocumentBinaryObject", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EmbeddedDocumentBinaryObjectType : BinaryObjectType1
     {
-    }
+		public static implicit operator EmbeddedDocumentBinaryObjectType(byte[] val)
+		{
+			return new EmbeddedDocumentBinaryObjectType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("StartTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class StartTimeType : TimeType
     {
-    }
+		public static implicit operator StartTimeType(System.DateTime val)
+		{
+			return new StartTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

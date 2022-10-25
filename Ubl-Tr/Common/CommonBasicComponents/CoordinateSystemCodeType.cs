@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CoordinateSystemCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CoordinateSystemCodeType : CodeType1
     {
-    }
+		public static implicit operator CoordinateSystemCodeType(string val)
+		{
+			return new CoordinateSystemCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

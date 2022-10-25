@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("WarrantyInformation", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class WarrantyInformationType : TextType1
     {
-    }
+		public static implicit operator WarrantyInformationType(string val)
+		{
+			return new WarrantyInformationType
+			{
+				Value = val
+			};
+		}
+	}
 }
