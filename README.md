@@ -16,6 +16,47 @@ PM> Install-Package UblTr
 ## InvoiceType Usage
 
 ### Serialize
+
+Using implict operators to assign values
+```csharp
+private static void Main(string[] args)
+{
+      var invoice = new UblTr.MainDoc.InvoiceType()
+      {
+            UUID = Guid.NewGuid().ToString(),
+            UBLVersionID ="2.1",
+            CustomizationID = "TR1.2",
+            ProfileID ="TEMELFATURA",
+            ID = "INV20200000000001",
+            CopyIndicator = false
+      };
+
+      XmlSerializer xmlSerializer = new XmlSerializer(typeof(UblTr.MainDoc.InvoiceType));
+      using TextWriter writer = new StreamWriter(@"./TestInvoice.xml"); //path to document
+      xmlSerializer.Serialize(writer, invoice, new UblTr.Serialization.UblTrNamespaces());
+}
+```
+
+Or using explicilty assign values
+```csharp
+private static void Main(string[] args)
+{
+      var invoice = new UblTr.MainDoc.InvoiceType()
+      {
+            UUID = new UblTr.Common.UUIDType() { Value = Guid.NewGuid().ToString() },
+            UBLVersionID = new UblTr.Common.UBLVersionIDType() { Value = "2.1" },
+            CustomizationID = new UblTr.Common.CustomizationIDType() { Value = "TR1.2" },
+            ProfileID = new UblTr.Common.ProfileIDType() { Value = "TEMELFATURA" },
+            ID = new UblTr.Common.IDType() { Value = "INV20200000000001" },
+            CopyIndicator = new UblTr.Common.CopyIndicatorType() { Value = false }
+      };
+
+      XmlSerializer xmlSerializer = new XmlSerializer(typeof(UblTr.MainDoc.InvoiceType));
+      using TextWriter writer = new StreamWriter(@"./TestInvoice.xml"); //path to document
+      xmlSerializer.Serialize(writer, invoice, new UblTr.Serialization.UblTrNamespaces());
+}
+
+```
 ```csharp
 private static void Main(string[] args)
 {
@@ -90,7 +131,7 @@ private static void Main(string[] args)
       };
 
       XmlSerializer xmlSerializer = new XmlSerializer(typeof(UblTr.MainDoc.DespatchAdviceType));
-      using TextWriter writer = new StreamWriter(@"C:\Temp\TestDespatch.xml"); //path to document
+      using TextWriter writer = new StreamWriter(@"./TestDespatch.xml"); //path to document
       xmlSerializer.Serialize(writer, invoice, new UblTr.Serialization.UblTrNamespaces());
 }
 
