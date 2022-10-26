@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EffectiveDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EffectiveDateType : DateType
     {
-    }
+		public static implicit operator EffectiveDateType(System.DateTime val)
+		{
+			return new EffectiveDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TaxEnergyBalanceAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TaxEnergyBalanceAmountType : AmountType1
     {
-    }
+		public static implicit operator TaxEnergyBalanceAmountType(decimal val)
+		{
+			return new TaxEnergyBalanceAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

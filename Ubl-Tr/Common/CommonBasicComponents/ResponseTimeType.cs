@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ResponseTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ResponseTimeType : TimeType
     {
-    }
+		public static implicit operator ResponseTimeType(System.DateTime val)
+		{
+			return new ResponseTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

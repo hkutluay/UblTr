@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("NotificationTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class NotificationTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator NotificationTypeCodeType(string val)
+		{
+			return new NotificationTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

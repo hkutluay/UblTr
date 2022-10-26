@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FrozenDocumentIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FrozenDocumentIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator FrozenDocumentIndicatorType(bool val)
+		{
+			return new FrozenDocumentIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("HeatingTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class HeatingTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator HeatingTypeCodeType(string val)
+		{
+			return new HeatingTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

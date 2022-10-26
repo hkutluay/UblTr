@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SupplierAssignedAccountID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SupplierAssignedAccountIDType : IdentifierType1
     {
-    }
+		public static implicit operator SupplierAssignedAccountIDType(string val)
+		{
+			return new SupplierAssignedAccountIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

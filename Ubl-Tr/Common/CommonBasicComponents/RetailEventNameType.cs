@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RetailEventName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RetailEventNameType : NameType
     {
-    }
+		public static implicit operator RetailEventNameType(string val)
+		{
+			return new RetailEventNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

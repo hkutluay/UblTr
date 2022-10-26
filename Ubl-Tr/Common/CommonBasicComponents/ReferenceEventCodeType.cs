@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReferenceEventCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReferenceEventCodeType : CodeType1
     {
-    }
+		public static implicit operator ReferenceEventCodeType(string val)
+		{
+			return new ReferenceEventCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

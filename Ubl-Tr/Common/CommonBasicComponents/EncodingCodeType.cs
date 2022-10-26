@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EncodingCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EncodingCodeType : CodeType1
     {
-    }
+		public static implicit operator EncodingCodeType(string val)
+		{
+			return new EncodingCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

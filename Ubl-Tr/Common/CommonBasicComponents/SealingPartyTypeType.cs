@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SealingPartyType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SealingPartyTypeType : TextType1
     {
-    }
+		public static implicit operator SealingPartyTypeType(string val)
+		{
+			return new SealingPartyTypeType
+			{
+				Value = val
+			};
+		}
+	}
 }

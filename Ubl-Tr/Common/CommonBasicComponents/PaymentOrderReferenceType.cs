@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PaymentOrderReference", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PaymentOrderReferenceType : TextType1
     {
-    }
+		public static implicit operator PaymentOrderReferenceType(string val)
+		{
+			return new PaymentOrderReferenceType
+			{
+				Value = val
+			};
+		}
+	}
 }

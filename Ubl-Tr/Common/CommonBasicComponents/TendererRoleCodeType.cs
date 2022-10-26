@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TendererRoleCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TendererRoleCodeType : CodeType1
     {
-    }
+		public static implicit operator TendererRoleCodeType(string val)
+		{
+			return new TendererRoleCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

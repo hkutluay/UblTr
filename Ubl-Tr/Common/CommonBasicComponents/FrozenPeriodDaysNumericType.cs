@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FrozenPeriodDaysNumeric", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FrozenPeriodDaysNumericType : NumericType1
     {
-    }
+		public static implicit operator FrozenPeriodDaysNumericType(decimal val)
+		{
+			return new FrozenPeriodDaysNumericType
+			{
+				Value = val
+			};
+		}
+	}
 }

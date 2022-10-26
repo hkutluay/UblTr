@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SubscriberID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SubscriberIDType : IdentifierType1
     {
-    }
+		public static implicit operator SubscriberIDType(string val)
+		{
+			return new SubscriberIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

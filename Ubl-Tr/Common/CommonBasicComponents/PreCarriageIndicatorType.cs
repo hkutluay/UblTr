@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PreCarriageIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PreCarriageIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator PreCarriageIndicatorType(bool val)
+		{
+			return new PreCarriageIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("IssueDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class IssueDateType : DateType
     {
-    }
+		public static implicit operator IssueDateType(System.DateTime val)
+		{
+			return new IssueDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

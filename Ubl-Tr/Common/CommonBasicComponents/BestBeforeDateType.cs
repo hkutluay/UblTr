@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BestBeforeDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BestBeforeDateType : DateType
     {
-    }
+		public static implicit operator BestBeforeDateType(System.DateTime val)
+		{
+			return new BestBeforeDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TelecommunicationsSupplyTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TelecommunicationsSupplyTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator TelecommunicationsSupplyTypeCodeType(string val)
+		{
+			return new TelecommunicationsSupplyTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

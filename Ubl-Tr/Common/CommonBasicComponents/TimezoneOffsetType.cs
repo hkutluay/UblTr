@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TimezoneOffset", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TimezoneOffsetType : TextType1
     {
-    }
+		public static implicit operator TimezoneOffsetType(string val)
+		{
+			return new TimezoneOffsetType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -21,12 +21,12 @@ private static void Main(string[] args)
 {
       var invoice = new UblTr.MainDoc.InvoiceType()
       {
-            UUID = new UblTr.Common.UUIDType() { Value = Guid.NewGuid().ToString() },
-            UBLVersionID = new UblTr.Common.UBLVersionIDType() { Value = "2.1" },
-            CustomizationID = new UblTr.Common.CustomizationIDType() { Value = "TR1.2" },
-            ProfileID = new UblTr.Common.ProfileIDType() { Value = "TEMELFATURA" },
-            ID = new UblTr.Common.IDType() { Value = "INV20200000000001" },
-            CopyIndicator = new UblTr.Common.CopyIndicatorType() { Value = false }
+            UUID = Guid.NewGuid().ToString(),
+            UBLVersionID ="2.1",
+            CustomizationID = "TR1.2",
+            ProfileID ="TEMELFATURA",
+            ID = "INV20200000000001",
+            CopyIndicator = false
       };
 
       XmlSerializer xmlSerializer = new XmlSerializer(typeof(UblTr.MainDoc.InvoiceType));
@@ -81,12 +81,12 @@ private static void Main(string[] args)
 {
       var despatch = new UblTr.MainDoc.DespatchAdviceType()
       {
-            UUID = new UblTr.Common.UUIDType() { Value = Guid.NewGuid().ToString() },
-            UBLVersionID = new UblTr.Common.UBLVersionIDType() { Value = "2.1" },
-            CustomizationID = new UblTr.Common.CustomizationIDType() { Value = "TR1.2" },
-            ProfileID = new UblTr.Common.ProfileIDType() { Value = "TEMELIRSALIYE" },
-            ID = new UblTr.Common.IDType() { Value = "IRS20200000000001" },
-            CopyIndicator = new UblTr.Common.CopyIndicatorType() { Value = false }
+            UUID = Guid.NewGuid().ToString(),
+            UBLVersionID = "2.1",
+            CustomizationID = "TR1.2",
+            ProfileID = "TEMELIRSALIYE",
+            ID = "IRS20200000000001",
+            CopyIndicator = false
       };
 
       XmlSerializer xmlSerializer = new XmlSerializer(typeof(UblTr.MainDoc.DespatchAdviceType));

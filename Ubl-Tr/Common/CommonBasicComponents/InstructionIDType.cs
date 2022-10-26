@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("InstructionID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class InstructionIDType : IdentifierType1
     {
-    }
+		public static implicit operator InstructionIDType(string val)
+		{
+			return new InstructionIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

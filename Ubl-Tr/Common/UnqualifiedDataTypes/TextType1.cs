@@ -195,5 +195,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(TypeName = "TextType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class TextType1 : TextType
     {
+        public static implicit operator TextType1(string val)
+        {
+            return new TextType1
+            {
+                Value = val
+            };
+        }
     }
 }

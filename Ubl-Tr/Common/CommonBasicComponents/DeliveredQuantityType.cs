@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DeliveredQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DeliveredQuantityType : QuantityType1
     {
-    }
+		public static implicit operator DeliveredQuantityType(decimal val)
+		{
+			return new DeliveredQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

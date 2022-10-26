@@ -23,5 +23,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(TypeName = "NumericType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class NumericType1 : NumericType
     {
+        public static implicit operator NumericType1(decimal val)
+        {
+            return new NumericType1
+            {
+                Value = val
+            };
+        }
     }
 }

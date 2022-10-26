@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BackOrderAllowedIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BackOrderAllowedIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator BackOrderAllowedIndicatorType(bool val)
+		{
+			return new BackOrderAllowedIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

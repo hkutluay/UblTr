@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ResidentOccupantsNumeric", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ResidentOccupantsNumericType : NumericType1
     {
-    }
+		public static implicit operator ResidentOccupantsNumericType(decimal val)
+		{
+			return new ResidentOccupantsNumericType
+			{
+				Value = val
+			};
+		}
+	}
 }

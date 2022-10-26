@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("UUID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class UUIDType : IdentifierType1
     {
-    }
+		public static implicit operator UUIDType(string val)
+		{
+			return new UUIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

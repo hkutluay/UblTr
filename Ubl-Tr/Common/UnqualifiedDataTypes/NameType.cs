@@ -29,5 +29,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class NameType : TextType
     {
-    }
+		public static implicit operator NameType(string val)
+		{
+			return new NameType
+			{
+				Value = val
+			};
+		}
+	}
 }

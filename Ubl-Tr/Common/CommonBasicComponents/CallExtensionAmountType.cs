@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CallExtensionAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CallExtensionAmountType : AmountType1
     {
-    }
+		public static implicit operator CallExtensionAmountType(decimal val)
+		{
+			return new CallExtensionAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

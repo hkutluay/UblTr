@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ValidateProcess", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ValidateProcessType : TextType1
     {
-    }
+		public static implicit operator ValidateProcessType(string val)
+		{
+			return new ValidateProcessType
+			{
+				Value = val
+			};
+		}
+	}
 }

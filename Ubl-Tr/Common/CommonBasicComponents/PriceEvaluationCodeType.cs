@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PriceEvaluationCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PriceEvaluationCodeType : CodeType1
     {
-    }
+		public static implicit operator PriceEvaluationCodeType(string val)
+		{
+			return new PriceEvaluationCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

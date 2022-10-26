@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PartyType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PartyTypeType : TextType1
     {
-    }
+		public static implicit operator PartyTypeType(string val)
+		{
+			return new PartyTypeType
+			{
+				Value = val
+			};
+		}
+	}
 }

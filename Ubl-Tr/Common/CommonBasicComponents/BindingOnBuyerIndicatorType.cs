@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BindingOnBuyerIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BindingOnBuyerIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator BindingOnBuyerIndicatorType(bool val)
+		{
+			return new BindingOnBuyerIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

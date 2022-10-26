@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LineStatusCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LineStatusCodeType : CodeType1
     {
-    }
+		public static implicit operator LineStatusCodeType(string val)
+		{
+			return new LineStatusCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

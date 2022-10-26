@@ -6,5 +6,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class GraphicType : BinaryObjectType
     {
-    }
+		public static implicit operator GraphicType(byte[] val)
+		{
+			return new GraphicType
+			{
+				Value = val
+			};
+		}
+	}
 }

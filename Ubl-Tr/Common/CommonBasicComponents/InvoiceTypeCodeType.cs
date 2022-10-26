@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("InvoiceTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class InvoiceTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator InvoiceTypeCodeType(string val)
+		{
+			return new InvoiceTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

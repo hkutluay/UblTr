@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EstimatedOverallContractQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EstimatedOverallContractQuantityType : QuantityType1
     {
-    }
+		public static implicit operator EstimatedOverallContractQuantityType(decimal val)
+		{
+			return new EstimatedOverallContractQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

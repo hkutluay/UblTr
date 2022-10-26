@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReceivedForeignTenderQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReceivedForeignTenderQuantityType : QuantityType1
     {
-    }
+		public static implicit operator ReceivedForeignTenderQuantityType(decimal val)
+		{
+			return new ReceivedForeignTenderQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

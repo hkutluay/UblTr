@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AuctionURI", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AuctionURIType : IdentifierType1
     {
-    }
+		public static implicit operator AuctionURIType(string val)
+		{
+			return new AuctionURIType
+			{
+				Value = val
+			};
+		}
+	}
 }

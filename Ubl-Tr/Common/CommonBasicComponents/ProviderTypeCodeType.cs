@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ProviderTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ProviderTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator ProviderTypeCodeType(string val)
+		{
+			return new ProviderTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

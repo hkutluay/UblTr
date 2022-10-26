@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Expression", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ExpressionType : TextType1
     {
-    }
+		public static implicit operator ExpressionType(string val)
+		{
+			return new ExpressionType
+			{
+				Value = val
+			};
+		}
+	}
 }

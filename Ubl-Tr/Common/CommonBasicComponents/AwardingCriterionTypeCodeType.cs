@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AwardingCriterionTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AwardingCriterionTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator AwardingCriterionTypeCodeType(string val)
+		{
+			return new AwardingCriterionTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

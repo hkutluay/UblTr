@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OutstandingReason", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OutstandingReasonType : TextType1
     {
-    }
+		public static implicit operator OutstandingReasonType(string val)
+		{
+			return new OutstandingReasonType
+			{
+				Value = val
+			};
+		}
+	}
 }

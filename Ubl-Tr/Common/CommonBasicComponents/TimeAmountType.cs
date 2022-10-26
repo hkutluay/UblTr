@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TimeAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TimeAmountType : TextType1
     {
-    }
+		public static implicit operator TimeAmountType(string val)
+		{
+			return new TimeAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

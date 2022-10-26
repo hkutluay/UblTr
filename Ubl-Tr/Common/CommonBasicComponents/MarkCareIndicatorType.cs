@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MarkCareIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MarkCareIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator MarkCareIndicatorType(bool val)
+		{
+			return new MarkCareIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

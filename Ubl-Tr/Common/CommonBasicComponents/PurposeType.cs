@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Purpose", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PurposeType : TextType1
     {
-    }
+		public static implicit operator PurposeType(string val)
+		{
+			return new PurposeType
+			{
+				Value = val
+			};
+		}
+	}
 }

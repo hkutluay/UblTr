@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ExtensionURI", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2", IsNullable = false)]
     public partial class ExtensionURIType : IdentifierType1
     {
-    }
+		public static implicit operator ExtensionURIType(string val)
+		{
+			return new ExtensionURIType
+			{
+				Value = val
+			};
+		}
+	}
 }

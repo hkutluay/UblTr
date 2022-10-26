@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(TypeName = "BinaryObjectType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class BinaryObjectType1 : BinaryObjectType
     {
+        public static implicit operator BinaryObjectType1(byte[] val)
+        {
+            return new BinaryObjectType1
+            {
+                Value = val
+            };
+        }
     }
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ChargeIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ChargeIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator ChargeIndicatorType(bool val)
+		{
+			return new ChargeIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

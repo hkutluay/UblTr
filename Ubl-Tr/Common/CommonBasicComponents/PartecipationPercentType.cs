@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PartecipationPercent", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PartecipationPercentType : PercentType
     {
-    }
+		public static implicit operator PartecipationPercentType(decimal val)
+		{
+			return new PartecipationPercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

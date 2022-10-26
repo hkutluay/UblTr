@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BackorderReason", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BackorderReasonType : TextType1
     {
-    }
+		public static implicit operator BackorderReasonType(string val)
+		{
+			return new BackorderReasonType
+			{
+				Value = val
+			};
+		}
+	}
 }

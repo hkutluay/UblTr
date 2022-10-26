@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TransportExecutionStatusCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TransportExecutionStatusCodeType : CodeType1
     {
-    }
+		public static implicit operator TransportExecutionStatusCodeType(string val)
+		{
+			return new TransportExecutionStatusCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

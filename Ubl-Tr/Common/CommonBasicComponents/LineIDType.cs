@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LineID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LineIDType : IdentifierType1
     {
-    }
+		public static implicit operator LineIDType(string val)
+		{
+			return new LineIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

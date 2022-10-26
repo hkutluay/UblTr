@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CrewQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CrewQuantityType : QuantityType1
     {
-    }
+		public static implicit operator CrewQuantityType(decimal val)
+		{
+			return new CrewQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

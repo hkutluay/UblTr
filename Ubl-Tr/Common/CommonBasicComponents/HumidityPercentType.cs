@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("HumidityPercent", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class HumidityPercentType : PercentType
     {
-    }
+		public static implicit operator HumidityPercentType(decimal val)
+		{
+			return new HumidityPercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

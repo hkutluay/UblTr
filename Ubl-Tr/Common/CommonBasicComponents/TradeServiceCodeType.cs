@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TradeServiceCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TradeServiceCodeType : CodeType1
     {
-    }
+		public static implicit operator TradeServiceCodeType(string val)
+		{
+			return new TradeServiceCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

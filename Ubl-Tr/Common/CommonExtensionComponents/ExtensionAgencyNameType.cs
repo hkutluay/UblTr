@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ExtensionAgencyName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2", IsNullable = false)]
     public partial class ExtensionAgencyNameType : TextType1
     {
-    }
+		public static implicit operator ExtensionAgencyNameType(string val)
+		{
+			return new ExtensionAgencyNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EvidenceTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EvidenceTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator EvidenceTypeCodeType(string val)
+		{
+			return new EvidenceTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OneTimeChargeType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OneTimeChargeTypeType : TextType1
     {
-    }
+		public static implicit operator OneTimeChargeTypeType(string val)
+		{
+			return new OneTimeChargeTypeType
+			{
+				Value = val
+			};
+		}
+	}
 }

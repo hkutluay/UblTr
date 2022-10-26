@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("IssueNumberID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class IssueNumberIDType : IdentifierType1
     {
-    }
+		public static implicit operator IssueNumberIDType(string val)
+		{
+			return new IssueNumberIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

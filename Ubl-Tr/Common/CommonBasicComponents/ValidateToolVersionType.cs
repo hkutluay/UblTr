@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ValidateToolVersion", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ValidateToolVersionType : TextType1
     {
-    }
+		public static implicit operator ValidateToolVersionType(string val)
+		{
+			return new ValidateToolVersionType
+			{
+				Value = val
+			};
+		}
+	}
 }

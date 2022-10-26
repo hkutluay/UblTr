@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReturnableMaterialIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReturnableMaterialIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator ReturnableMaterialIndicatorType(bool val)
+		{
+			return new ReturnableMaterialIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

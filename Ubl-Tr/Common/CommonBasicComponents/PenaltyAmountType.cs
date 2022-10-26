@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PenaltyAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PenaltyAmountType : AmountType1
     {
-    }
+		public static implicit operator PenaltyAmountType(decimal val)
+		{
+			return new PenaltyAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PositionCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PositionCodeType : CodeType1
     {
-    }
+		public static implicit operator PositionCodeType(string val)
+		{
+			return new PositionCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

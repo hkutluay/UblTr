@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Room", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RoomType : TextType1
     {
-    }
+		public static implicit operator RoomType(string val)
+		{
+			return new RoomType
+			{
+				Value = val
+			};
+		}
+	}
 }

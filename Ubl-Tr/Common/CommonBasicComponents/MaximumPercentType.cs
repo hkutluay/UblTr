@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MaximumPercent", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MaximumPercentType : PercentType
     {
-    }
+		public static implicit operator MaximumPercentType(decimal val)
+		{
+			return new MaximumPercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

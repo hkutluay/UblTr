@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MarkCare", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MarkCareType : TextType1
     {
-    }
+		public static implicit operator MarkCareType(string val)
+		{
+			return new MarkCareType
+			{
+				Value = val
+			};
+		}
+	}
 }

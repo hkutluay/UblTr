@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BirthDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BirthDateType : DateType
     {
-    }
+		public static implicit operator BirthDateType(System.DateTime val)
+		{
+			return new BirthDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

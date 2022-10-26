@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ExchangeMarketID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ExchangeMarketIDType : IdentifierType1
     {
-    }
+		public static implicit operator ExchangeMarketIDType(string val)
+		{
+			return new ExchangeMarketIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

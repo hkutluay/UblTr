@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DueDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DueDateType : DateType
     {
-    }
+		public static implicit operator DueDateType(System.DateTime val)
+		{
+			return new DueDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

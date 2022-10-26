@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Telefax", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TelefaxType : TextType1
     {
-    }
+		public static implicit operator TelefaxType(string val)
+		{
+			return new TelefaxType
+			{
+				Value = val
+			};
+		}
+	}
 }

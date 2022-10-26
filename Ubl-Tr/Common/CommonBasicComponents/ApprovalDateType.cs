@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ApprovalDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ApprovalDateType : DateType
     {
-    }
+		public static implicit operator ApprovalDateType(System.DateTime val)
+		{
+			return new ApprovalDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

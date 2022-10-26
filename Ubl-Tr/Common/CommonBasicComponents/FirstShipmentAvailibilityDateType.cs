@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FirstShipmentAvailibilityDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FirstShipmentAvailibilityDateType : DateType
     {
-    }
+		public static implicit operator FirstShipmentAvailibilityDateType(System.DateTime val)
+		{
+			return new FirstShipmentAvailibilityDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

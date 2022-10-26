@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AcceptedIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AcceptedIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator AcceptedIndicatorType(bool val)
+		{
+			return new AcceptedIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

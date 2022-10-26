@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LocationID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LocationIDType : IdentifierType1
     {
-    }
+		public static implicit operator LocationIDType(string val)
+		{
+			return new LocationIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

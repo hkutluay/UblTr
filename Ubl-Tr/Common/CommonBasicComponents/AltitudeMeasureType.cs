@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AltitudeMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AltitudeMeasureType : MeasureType1
     {
-    }
+		public static implicit operator AltitudeMeasureType(decimal val)
+		{
+			return new AltitudeMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

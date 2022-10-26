@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DeclaredStatisticsValueAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DeclaredStatisticsValueAmountType : AmountType1
     {
-    }
+		public static implicit operator DeclaredStatisticsValueAmountType(decimal val)
+		{
+			return new DeclaredStatisticsValueAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

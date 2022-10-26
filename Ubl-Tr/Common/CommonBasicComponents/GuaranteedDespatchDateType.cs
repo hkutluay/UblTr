@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("GuaranteedDespatchDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class GuaranteedDespatchDateType : DateType
     {
-    }
+		public static implicit operator GuaranteedDespatchDateType(System.DateTime val)
+		{
+			return new GuaranteedDespatchDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

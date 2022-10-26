@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OrderableUnit", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OrderableUnitType : TextType1
     {
-    }
+		public static implicit operator OrderableUnitType(string val)
+		{
+			return new OrderableUnitType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CalculationExpression", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CalculationExpressionType : TextType1
     {
-    }
+		public static implicit operator CalculationExpressionType(string val)
+		{
+			return new CalculationExpressionType
+			{
+				Value = val
+			};
+		}
+	}
 }

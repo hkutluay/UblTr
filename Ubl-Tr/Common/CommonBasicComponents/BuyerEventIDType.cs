@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BuyerEventID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BuyerEventIDType : IdentifierType1
     {
-    }
+		public static implicit operator BuyerEventIDType(string val)
+		{
+			return new BuyerEventIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

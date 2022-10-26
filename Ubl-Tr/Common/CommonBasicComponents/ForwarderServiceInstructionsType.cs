@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ForwarderServiceInstructions", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ForwarderServiceInstructionsType : TextType1
     {
-    }
+		public static implicit operator ForwarderServiceInstructionsType(string val)
+		{
+			return new ForwarderServiceInstructionsType
+			{
+				Value = val
+			};
+		}
+	}
 }

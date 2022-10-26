@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LimitationDescription", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LimitationDescriptionType : TextType1
     {
-    }
+		public static implicit operator LimitationDescriptionType(string val)
+		{
+			return new LimitationDescriptionType
+			{
+				Value = val
+			};
+		}
+	}
 }

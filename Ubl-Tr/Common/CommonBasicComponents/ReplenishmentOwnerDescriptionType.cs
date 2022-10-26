@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReplenishmentOwnerDescription", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReplenishmentOwnerDescriptionType : TextType1
     {
-    }
+		public static implicit operator ReplenishmentOwnerDescriptionType(string val)
+		{
+			return new ReplenishmentOwnerDescriptionType
+			{
+				Value = val
+			};
+		}
+	}
 }

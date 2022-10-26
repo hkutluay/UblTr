@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MultiplierFactorNumeric", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MultiplierFactorNumericType : NumericType1
     {
-    }
+		public static implicit operator MultiplierFactorNumericType(decimal val)
+		{
+			return new MultiplierFactorNumericType
+			{
+				Value = val
+			};
+		}
+	}
 }

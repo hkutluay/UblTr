@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TradingRestrictions", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TradingRestrictionsType : TextType1
     {
-    }
+		public static implicit operator TradingRestrictionsType(string val)
+		{
+			return new TradingRestrictionsType
+			{
+				Value = val
+			};
+		}
+	}
 }

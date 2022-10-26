@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MandateTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MandateTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator MandateTypeCodeType(string val)
+		{
+			return new MandateTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

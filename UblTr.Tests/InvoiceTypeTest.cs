@@ -93,19 +93,19 @@ namespace UblTr.Tests
 
             var invoice = new InvoiceType
             {
-                UUID = new Common.UUIDType() { Value = Guid.NewGuid().ToString() },
-                UBLVersionID = new Common.UBLVersionIDType() { Value = "2.1" },
-                CustomizationID = new Common.CustomizationIDType() { Value = "TR1.2" },
-                ProfileID = new Common.ProfileIDType() { Value = "TEMELFATURA" },
-                ID = new Common.IDType() { Value = "INV20200000000001" },
-                CopyIndicator = new Common.CopyIndicatorType() { Value = false },
+                UUID = Guid.NewGuid().ToString(),
+                UBLVersionID = "2.1",
+                CustomizationID = "TR1.2",
+                ProfileID = "TEMELFATURA",
+                ID = "INV20200000000001",
+                CopyIndicator = false,
                 UBLExtensions = new Common.UBLExtensionType[] {
                    new Common.UBLExtensionType() {
                     ExtensionContent  =   document.CreateElement("auto-generated_for_wildcard","n4")
                     }
                 },
-                IssueTime = new Common.IssueTimeType() { Value = date },
-                IssueDate = new Common.IssueDateType() { Value = date }
+                IssueTime = date,
+                IssueDate = date
             };
 
        
@@ -134,19 +134,19 @@ namespace UblTr.Tests
             var date = DateTime.Now;
             var invoice = new InvoiceType
             {
-                UUID = new Common.UUIDType() { Value = Guid.NewGuid().ToString() },
-                UBLVersionID = new Common.UBLVersionIDType() { Value = "2.1" },
-                CustomizationID = new Common.CustomizationIDType() { Value = "TR1.2" },
-                ProfileID = new Common.ProfileIDType() { Value = "TEMELFATURA" },
-                ID = new Common.IDType() { Value = "INV20200000000001" },
-                CopyIndicator = new Common.CopyIndicatorType() { Value = false },
+                UUID =  Guid.NewGuid().ToString(),
+                UBLVersionID =  "2.1",
+                CustomizationID =  "TR1.2",
+                ProfileID =  "TEMELFATURA",
+                ID =  "INV20200000000001",
+                CopyIndicator =  false,
                 UBLExtensions = new Common.UBLExtensionType[] {
                    new Common.UBLExtensionType() {
                     ExtensionContent  =   document.CreateElement("auto-generated_for_wildcard","n4")
                     }
                 },
-                IssueTime = new Common.IssueTimeType() { Value = date },
-                IssueDate = new Common.IssueDateType() { Value = date }
+                IssueTime = date,
+                IssueDate = date
             };
 
 

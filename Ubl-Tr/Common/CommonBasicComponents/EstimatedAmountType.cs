@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EstimatedAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EstimatedAmountType : AmountType1
     {
-    }
+		public static implicit operator EstimatedAmountType(decimal val)
+		{
+			return new EstimatedAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

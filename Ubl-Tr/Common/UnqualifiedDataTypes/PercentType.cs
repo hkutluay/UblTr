@@ -20,5 +20,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class PercentType : NumericType
     {
-    }
+		public static implicit operator PercentType(decimal val)
+		{
+			return new PercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

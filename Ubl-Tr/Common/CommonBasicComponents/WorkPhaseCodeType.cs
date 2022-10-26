@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("WorkPhaseCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class WorkPhaseCodeType : CodeType1
     {
-    }
+		public static implicit operator WorkPhaseCodeType(string val)
+		{
+			return new WorkPhaseCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

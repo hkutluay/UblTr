@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ImportanceCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ImportanceCodeType : CodeType1
     {
-    }
+		public static implicit operator ImportanceCodeType(string val)
+		{
+			return new ImportanceCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

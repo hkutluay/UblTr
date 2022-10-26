@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DurationMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DurationMeasureType : MeasureType1
     {
-    }
+		public static implicit operator DurationMeasureType(decimal val)
+		{
+			return new DurationMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TenderResultCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TenderResultCodeType : CodeType1
     {
-    }
+		public static implicit operator TenderResultCodeType(string val)
+		{
+			return new TenderResultCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

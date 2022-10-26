@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AccountFormatCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AccountFormatCodeType : CodeType1
     {
-    }
+		public static implicit operator AccountFormatCodeType(string val)
+		{
+			return new AccountFormatCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

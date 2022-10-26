@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("Weight", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class WeightType : TextType1
     {
-    }
+		public static implicit operator WeightType(string val)
+		{
+			return new WeightType
+			{
+				Value = val
+			};
+		}
+	}
 }

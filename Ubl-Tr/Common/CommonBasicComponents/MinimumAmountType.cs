@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MinimumAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MinimumAmountType : AmountType1
     {
-    }
+		public static implicit operator MinimumAmountType(decimal val)
+		{
+			return new MinimumAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReferenceID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReferenceIDType : IdentifierType1
     {
-    }
+		public static implicit operator ReferenceIDType(string val)
+		{
+			return new ReferenceIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

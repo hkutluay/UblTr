@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EarliestPickupTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EarliestPickupTimeType : TimeType
     {
-    }
+		public static implicit operator EarliestPickupTimeType(System.DateTime val)
+		{
+			return new EarliestPickupTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

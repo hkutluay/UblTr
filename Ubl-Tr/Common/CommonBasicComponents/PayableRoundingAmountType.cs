@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PayableRoundingAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PayableRoundingAmountType : AmountType1
     {
-    }
+		public static implicit operator PayableRoundingAmountType(decimal val)
+		{
+			return new PayableRoundingAmountType
+			{
+				Value = val
+			};
+		}
+	}
 }

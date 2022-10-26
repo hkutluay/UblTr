@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OrderableIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OrderableIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator OrderableIndicatorType(bool val)
+		{
+			return new OrderableIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

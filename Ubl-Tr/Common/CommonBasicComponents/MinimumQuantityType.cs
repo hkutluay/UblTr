@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MinimumQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MinimumQuantityType : QuantityType1
     {
-    }
+		public static implicit operator MinimumQuantityType(decimal val)
+		{
+			return new MinimumQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

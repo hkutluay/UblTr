@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CopyIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CopyIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator CopyIndicatorType(bool val)
+		{
+			return new CopyIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

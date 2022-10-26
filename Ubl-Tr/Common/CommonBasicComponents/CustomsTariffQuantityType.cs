@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CustomsTariffQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CustomsTariffQuantityType : QuantityType1
     {
-    }
+		public static implicit operator CustomsTariffQuantityType(decimal val)
+		{
+			return new CustomsTariffQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

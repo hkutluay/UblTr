@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TransportationServiceDescription", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TransportationServiceDescriptionType : TextType1
     {
-    }
+		public static implicit operator TransportationServiceDescriptionType(string val)
+		{
+			return new TransportationServiceDescriptionType
+			{
+				Value = val
+			};
+		}
+	}
 }

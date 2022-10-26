@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LineCountNumeric", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LineCountNumericType : NumericType1
     {
-    }
+		public static implicit operator LineCountNumericType(decimal val)
+		{
+			return new LineCountNumericType
+			{
+				Value = val
+			};
+		}
+	}
 }

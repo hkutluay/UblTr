@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("GrossVolumeMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class GrossVolumeMeasureType : MeasureType1
     {
-    }
+		public static implicit operator GrossVolumeMeasureType(decimal val)
+		{
+			return new GrossVolumeMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AdditionalStreetName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AdditionalStreetNameType : NameType
     {
-    }
+		public static implicit operator AdditionalStreetNameType(string val)
+		{
+			return new AdditionalStreetNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ValueMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ValueMeasureType : MeasureType1
     {
-    }
+		public static implicit operator ValueMeasureType(decimal val)
+		{
+			return new ValueMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

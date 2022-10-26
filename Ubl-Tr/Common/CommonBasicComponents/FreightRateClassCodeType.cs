@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FreightRateClassCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FreightRateClassCodeType : CodeType1
     {
-    }
+		public static implicit operator FreightRateClassCodeType(string val)
+		{
+			return new FreightRateClassCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

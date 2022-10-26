@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OrderResponseCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OrderResponseCodeType : CodeType1
     {
-    }
+		public static implicit operator OrderResponseCodeType(string val)
+		{
+			return new OrderResponseCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

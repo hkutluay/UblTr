@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PhoneNumber", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PhoneNumberType : TextType1
     {
-    }
+		public static implicit operator PhoneNumberType(string val)
+		{
+			return new PhoneNumberType
+			{
+				Value = val
+			};
+		}
+	}
 }

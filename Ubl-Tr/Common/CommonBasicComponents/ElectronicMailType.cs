@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ElectronicMail", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ElectronicMailType : TextType1
     {
-    }
+		public static implicit operator ElectronicMailType(string val)
+		{
+			return new ElectronicMailType
+			{
+				Value = val
+			};
+		}
+	}
 }

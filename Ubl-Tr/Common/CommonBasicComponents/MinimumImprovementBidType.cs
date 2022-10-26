@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MinimumImprovementBid", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MinimumImprovementBidType : TextType1
     {
-    }
+		public static implicit operator MinimumImprovementBidType(string val)
+		{
+			return new MinimumImprovementBidType
+			{
+				Value = val
+			};
+		}
+	}
 }

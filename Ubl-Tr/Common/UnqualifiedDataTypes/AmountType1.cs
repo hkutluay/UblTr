@@ -74,5 +74,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(TypeName = "AmountType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class AmountType1 : AmountType
     {
+        public static implicit operator AmountType1(decimal val)
+        {
+            return new AmountType1
+            {
+                Value = val
+            };
+        }
     }
 }

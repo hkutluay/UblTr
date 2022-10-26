@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RequestedDespatchDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RequestedDespatchDateType : DateType
     {
-    }
+		public static implicit operator RequestedDespatchDateType(System.DateTime val)
+		{
+			return new RequestedDespatchDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CanonicalizationMethod", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CanonicalizationMethodType : TextType1
     {
-    }
+		public static implicit operator CanonicalizationMethodType(string val)
+		{
+			return new CanonicalizationMethodType
+			{
+				Value = val
+			};
+		}
+	}
 }

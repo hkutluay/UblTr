@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LifeCycleStatusCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LifeCycleStatusCodeType : CodeType1
     {
-    }
+		public static implicit operator LifeCycleStatusCodeType(string val)
+		{
+			return new LifeCycleStatusCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

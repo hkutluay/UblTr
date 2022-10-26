@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MeterConstantCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MeterConstantCodeType : CodeType1
     {
-    }
+		public static implicit operator MeterConstantCodeType(string val)
+		{
+			return new MeterConstantCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

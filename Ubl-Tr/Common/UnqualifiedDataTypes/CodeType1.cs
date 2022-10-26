@@ -220,5 +220,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(TypeName = "CodeType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class CodeType1 : CodeType
     {
+        public static implicit operator CodeType1(string val)
+        {
+            return new CodeType1
+            {
+                Value = val
+            };
+        }
     }
 }

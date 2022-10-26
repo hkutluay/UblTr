@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CategoryName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CategoryNameType : NameType
     {
-    }
+		public static implicit operator CategoryNameType(string val)
+		{
+			return new CategoryNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

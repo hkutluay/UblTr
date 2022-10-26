@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("VariantConstraintIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class VariantConstraintIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator VariantConstraintIndicatorType(bool val)
+		{
+			return new VariantConstraintIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

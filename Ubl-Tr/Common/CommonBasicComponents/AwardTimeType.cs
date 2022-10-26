@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AwardTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AwardTimeType : TimeType
     {
-    }
+		public static implicit operator AwardTimeType(System.DateTime val)
+		{
+			return new AwardTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

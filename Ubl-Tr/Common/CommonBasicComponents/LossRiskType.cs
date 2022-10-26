@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LossRisk", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LossRiskType : TextType1
     {
-    }
+		public static implicit operator LossRiskType(string val)
+		{
+			return new LossRiskType
+			{
+				Value = val
+			};
+		}
+	}
 }

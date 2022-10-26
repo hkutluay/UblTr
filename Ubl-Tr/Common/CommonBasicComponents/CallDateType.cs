@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CallDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CallDateType : DateType
     {
-    }
+		public static implicit operator CallDateType(System.DateTime val)
+		{
+			return new CallDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

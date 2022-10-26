@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DocumentStatusReasonCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DocumentStatusReasonCodeType : CodeType1
     {
-    }
+		public static implicit operator DocumentStatusReasonCodeType(string val)
+		{
+			return new DocumentStatusReasonCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TargetCurrencyBaseRate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TargetCurrencyBaseRateType : RateType
     {
-    }
+		public static implicit operator TargetCurrencyBaseRateType(decimal val)
+		{
+			return new TargetCurrencyBaseRateType
+			{
+				Value = val
+			};
+		}
+	}
 }

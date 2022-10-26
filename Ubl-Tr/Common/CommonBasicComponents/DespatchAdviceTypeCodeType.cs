@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DespatchAdviceTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DespatchAdviceTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator DespatchAdviceTypeCodeType(string val)
+		{
+			return new DespatchAdviceTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

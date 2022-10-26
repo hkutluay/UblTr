@@ -32,5 +32,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(TypeName = "MeasureType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class MeasureType1 : MeasureType
     {
+        public static implicit operator MeasureType1(decimal val)
+        {
+            return new MeasureType1
+            {
+                Value = val
+            };
+        }
     }
 }

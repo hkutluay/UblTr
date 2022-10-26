@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RequestedPublicationDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RequestedPublicationDateType : DateType
     {
-    }
+		public static implicit operator RequestedPublicationDateType(System.DateTime val)
+		{
+			return new RequestedPublicationDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

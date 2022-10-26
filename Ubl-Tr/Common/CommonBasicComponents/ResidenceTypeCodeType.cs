@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ResidenceTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ResidenceTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator ResidenceTypeCodeType(string val)
+		{
+			return new ResidenceTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

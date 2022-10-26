@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ProgressPercent", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ProgressPercentType : PercentType
     {
-    }
+		public static implicit operator ProgressPercentType(decimal val)
+		{
+			return new ProgressPercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

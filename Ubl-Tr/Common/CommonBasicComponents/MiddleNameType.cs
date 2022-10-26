@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MiddleName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MiddleNameType : NameType
     {
-    }
+		public static implicit operator MiddleNameType(string val)
+		{
+			return new MiddleNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -6,5 +6,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class PictureType : BinaryObjectType
     {
-    }
+		public static implicit operator PictureType(byte[] val)
+		{
+			return new PictureType
+			{
+				Value = val
+			};
+		}
+	}
 }

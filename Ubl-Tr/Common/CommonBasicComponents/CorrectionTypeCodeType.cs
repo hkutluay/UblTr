@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CorrectionTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CorrectionTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator CorrectionTypeCodeType(string val)
+		{
+			return new CorrectionTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

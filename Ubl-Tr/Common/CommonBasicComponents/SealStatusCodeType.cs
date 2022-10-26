@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SealStatusCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SealStatusCodeType : CodeType1
     {
-    }
+		public static implicit operator SealStatusCodeType(string val)
+		{
+			return new SealStatusCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

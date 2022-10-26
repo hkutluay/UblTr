@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PricingUpdateRequestIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PricingUpdateRequestIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator PricingUpdateRequestIndicatorType(bool val)
+		{
+			return new PricingUpdateRequestIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ProcurementSubTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ProcurementSubTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator ProcurementSubTypeCodeType(string val)
+		{
+			return new ProcurementSubTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

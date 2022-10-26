@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DocumentHash", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DocumentHashType : TextType1
     {
-    }
+		public static implicit operator DocumentHashType(string val)
+		{
+			return new DocumentHashType
+			{
+				Value = val
+			};
+		}
+	}
 }

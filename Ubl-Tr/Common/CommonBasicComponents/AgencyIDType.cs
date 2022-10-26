@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AgencyID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AgencyIDType : IdentifierType1
     {
-    }
+		public static implicit operator AgencyIDType(string val)
+		{
+			return new AgencyIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

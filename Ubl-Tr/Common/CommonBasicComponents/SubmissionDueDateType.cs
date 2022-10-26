@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SubmissionDueDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SubmissionDueDateType : DateType
     {
-    }
+		public static implicit operator SubmissionDueDateType(System.DateTime val)
+		{
+			return new SubmissionDueDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

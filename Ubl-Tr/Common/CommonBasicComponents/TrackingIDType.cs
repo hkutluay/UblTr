@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TrackingID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TrackingIDType : IdentifierType1
     {
-    }
+		public static implicit operator TrackingIDType(string val)
+		{
+			return new TrackingIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

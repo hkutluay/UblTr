@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ProcedureCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ProcedureCodeType : CodeType1
     {
-    }
+		public static implicit operator ProcedureCodeType(string val)
+		{
+			return new ProcedureCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FeeDescription", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FeeDescriptionType : TextType1
     {
-    }
+		public static implicit operator FeeDescriptionType(string val)
+		{
+			return new FeeDescriptionType
+			{
+				Value = val
+			};
+		}
+	}
 }

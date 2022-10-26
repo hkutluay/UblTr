@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ActionCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ActionCodeType : CodeType1
     {
-    }
+		public static implicit operator ActionCodeType(string val)
+		{
+			return new ActionCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

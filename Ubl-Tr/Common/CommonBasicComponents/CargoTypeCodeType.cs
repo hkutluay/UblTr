@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CargoTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CargoTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator CargoTypeCodeType(string val)
+		{
+			return new CargoTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

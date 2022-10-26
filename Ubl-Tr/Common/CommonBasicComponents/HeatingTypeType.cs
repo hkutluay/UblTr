@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("HeatingType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class HeatingTypeType : TextType1
     {
-    }
+		public static implicit operator HeatingTypeType(string val)
+		{
+			return new HeatingTypeType
+			{
+				Value = val
+			};
+		}
+	}
 }

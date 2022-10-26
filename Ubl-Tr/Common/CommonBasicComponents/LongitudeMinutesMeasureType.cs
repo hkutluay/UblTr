@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LongitudeMinutesMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LongitudeMinutesMeasureType : MeasureType1
     {
-    }
+		public static implicit operator LongitudeMinutesMeasureType(decimal val)
+		{
+			return new LongitudeMinutesMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

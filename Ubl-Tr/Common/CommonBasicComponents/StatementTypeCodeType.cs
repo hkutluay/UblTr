@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("StatementTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class StatementTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator StatementTypeCodeType(string val)
+		{
+			return new StatementTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

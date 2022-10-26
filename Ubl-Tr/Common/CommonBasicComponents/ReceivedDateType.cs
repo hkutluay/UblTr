@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReceivedDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ReceivedDateType : DateType
     {
-    }
+		public static implicit operator ReceivedDateType(System.DateTime val)
+		{
+			return new ReceivedDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

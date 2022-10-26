@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ThresholdValueComparisonCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ThresholdValueComparisonCodeType : CodeType1
     {
-    }
+		public static implicit operator ThresholdValueComparisonCodeType(string val)
+		{
+			return new ThresholdValueComparisonCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

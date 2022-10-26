@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PreviousCancellationReasonCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PreviousCancellationReasonCodeType : CodeType1
     {
-    }
+		public static implicit operator PreviousCancellationReasonCodeType(string val)
+		{
+			return new PreviousCancellationReasonCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

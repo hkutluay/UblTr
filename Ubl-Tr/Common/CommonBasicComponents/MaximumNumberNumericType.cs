@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MaximumNumberNumeric", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MaximumNumberNumericType : NumericType1
     {
-    }
+		public static implicit operator MaximumNumberNumericType(decimal val)
+		{
+			return new MaximumNumberNumericType
+			{
+				Value = val
+			};
+		}
+	}
 }

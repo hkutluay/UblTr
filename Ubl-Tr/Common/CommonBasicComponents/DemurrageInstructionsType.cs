@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DemurrageInstructions", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DemurrageInstructionsType : TextType1
     {
-    }
+		public static implicit operator DemurrageInstructionsType(string val)
+		{
+			return new DemurrageInstructionsType
+			{
+				Value = val
+			};
+		}
+	}
 }

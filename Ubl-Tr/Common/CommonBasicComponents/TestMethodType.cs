@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TestMethod", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TestMethodType : TextType1
     {
-    }
+		public static implicit operator TestMethodType(string val)
+		{
+			return new TestMethodType
+			{
+				Value = val
+			};
+		}
+	}
 }

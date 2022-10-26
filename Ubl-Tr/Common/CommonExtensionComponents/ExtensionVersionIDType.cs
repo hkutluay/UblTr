@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ExtensionVersionID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2", IsNullable = false)]
     public partial class ExtensionVersionIDType : IdentifierType1
     {
-    }
+		public static implicit operator ExtensionVersionIDType(string val)
+		{
+			return new ExtensionVersionIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

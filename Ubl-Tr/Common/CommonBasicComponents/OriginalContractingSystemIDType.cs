@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OriginalContractingSystemID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OriginalContractingSystemIDType : IdentifierType1
     {
-    }
+		public static implicit operator OriginalContractingSystemIDType(string val)
+		{
+			return new OriginalContractingSystemIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

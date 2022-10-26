@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ShortageActionCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ShortageActionCodeType : CodeType1
     {
-    }
+		public static implicit operator ShortageActionCodeType(string val)
+		{
+			return new ShortageActionCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

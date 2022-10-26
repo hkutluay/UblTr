@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PaymentTermsDetailsURI", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PaymentTermsDetailsURIType : IdentifierType1
     {
-    }
+		public static implicit operator PaymentTermsDetailsURIType(string val)
+		{
+			return new PaymentTermsDetailsURIType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("EmergencyProceduresCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class EmergencyProceduresCodeType : CodeType1
     {
-    }
+		public static implicit operator EmergencyProceduresCodeType(string val)
+		{
+			return new EmergencyProceduresCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

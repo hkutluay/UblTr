@@ -6,5 +6,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class VideoType : BinaryObjectType
     {
-    }
+		public static implicit operator VideoType(byte[] val)
+		{
+			return new VideoType
+			{
+				Value = val
+			};
+		}
+	}
 }

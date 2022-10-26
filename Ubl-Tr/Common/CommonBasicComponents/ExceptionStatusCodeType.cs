@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ExceptionStatusCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ExceptionStatusCodeType : CodeType1
     {
-    }
+		public static implicit operator ExceptionStatusCodeType(string val)
+		{
+			return new ExceptionStatusCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

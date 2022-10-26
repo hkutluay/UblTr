@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BarcodeSymbologyID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BarcodeSymbologyIDType : IdentifierType1
     {
-    }
+		public static implicit operator BarcodeSymbologyIDType(string val)
+		{
+			return new BarcodeSymbologyIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

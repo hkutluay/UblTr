@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("GasPressureQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class GasPressureQuantityType : QuantityType1
     {
-    }
+		public static implicit operator GasPressureQuantityType(decimal val)
+		{
+			return new GasPressureQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

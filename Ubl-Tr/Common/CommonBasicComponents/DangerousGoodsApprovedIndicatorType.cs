@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("DangerousGoodsApprovedIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class DangerousGoodsApprovedIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator DangerousGoodsApprovedIndicatorType(bool val)
+		{
+			return new DangerousGoodsApprovedIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

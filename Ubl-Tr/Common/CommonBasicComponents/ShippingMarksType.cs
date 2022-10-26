@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ShippingMarks", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ShippingMarksType : TextType1
     {
-    }
+		public static implicit operator ShippingMarksType(string val)
+		{
+			return new ShippingMarksType
+			{
+				Value = val
+			};
+		}
+	}
 }

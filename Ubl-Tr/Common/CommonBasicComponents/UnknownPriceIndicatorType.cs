@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("UnknownPriceIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class UnknownPriceIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator UnknownPriceIndicatorType(bool val)
+		{
+			return new UnknownPriceIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AccountingCostCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AccountingCostCodeType : CodeType1
     {
-    }
+		public static implicit operator AccountingCostCodeType(string val)
+		{
+			return new AccountingCostCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

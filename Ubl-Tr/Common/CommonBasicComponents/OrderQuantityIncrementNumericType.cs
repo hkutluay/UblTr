@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("OrderQuantityIncrementNumeric", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class OrderQuantityIncrementNumericType : NumericType1
     {
-    }
+		public static implicit operator OrderQuantityIncrementNumericType(decimal val)
+		{
+			return new OrderQuantityIncrementNumericType
+			{
+				Value = val
+			};
+		}
+	}
 }

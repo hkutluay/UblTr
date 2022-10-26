@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SourceValueMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SourceValueMeasureType : MeasureType1
     {
-    }
+		public static implicit operator SourceValueMeasureType(decimal val)
+		{
+			return new SourceValueMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

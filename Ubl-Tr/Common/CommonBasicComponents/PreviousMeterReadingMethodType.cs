@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PreviousMeterReadingMethod", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PreviousMeterReadingMethodType : TextType1
     {
-    }
+		public static implicit operator PreviousMeterReadingMethodType(string val)
+		{
+			return new PreviousMeterReadingMethodType
+			{
+				Value = val
+			};
+		}
+	}
 }

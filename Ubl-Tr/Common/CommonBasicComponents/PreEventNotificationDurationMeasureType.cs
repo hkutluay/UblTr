@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PreEventNotificationDurationMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PreEventNotificationDurationMeasureType : MeasureType1
     {
-    }
+		public static implicit operator PreEventNotificationDurationMeasureType(decimal val)
+		{
+			return new PreEventNotificationDurationMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

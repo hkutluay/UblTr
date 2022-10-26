@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RegulatoryDomain", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RegulatoryDomainType : TextType1
     {
-    }
+		public static implicit operator RegulatoryDomainType(string val)
+		{
+			return new RegulatoryDomainType
+			{
+				Value = val
+			};
+		}
+	}
 }

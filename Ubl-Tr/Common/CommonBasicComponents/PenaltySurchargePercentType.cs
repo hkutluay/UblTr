@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PenaltySurchargePercent", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PenaltySurchargePercentType : PercentType
     {
-    }
+		public static implicit operator PenaltySurchargePercentType(decimal val)
+		{
+			return new PenaltySurchargePercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AllowanceChargeReason", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AllowanceChargeReasonType : TextType1
     {
-    }
+		public static implicit operator AllowanceChargeReasonType(string val)
+		{
+			return new AllowanceChargeReasonType
+			{
+				Value = val
+			};
+		}
+	}
 }

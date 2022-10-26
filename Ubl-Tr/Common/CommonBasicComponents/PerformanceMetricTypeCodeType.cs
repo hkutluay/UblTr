@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PerformanceMetricTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PerformanceMetricTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator PerformanceMetricTypeCodeType(string val)
+		{
+			return new PerformanceMetricTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TierRange", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TierRangeType : TextType1
     {
-    }
+		public static implicit operator TierRangeType(string val)
+		{
+			return new TierRangeType
+			{
+				Value = val
+			};
+		}
+	}
 }

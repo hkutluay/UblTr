@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ReferencedSignatureID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:SignatureBasicComponents-2", IsNullable = false)]
     public partial class ReferencedSignatureIDType : IdentifierType1
     {
-    }
+		public static implicit operator ReferencedSignatureIDType(string val)
+		{
+			return new ReferencedSignatureIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

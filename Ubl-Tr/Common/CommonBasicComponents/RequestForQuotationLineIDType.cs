@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RequestForQuotationLineID", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RequestForQuotationLineIDType : IdentifierType1
     {
-    }
+		public static implicit operator RequestForQuotationLineIDType(string val)
+		{
+			return new RequestForQuotationLineIDType
+			{
+				Value = val
+			};
+		}
+	}
 }

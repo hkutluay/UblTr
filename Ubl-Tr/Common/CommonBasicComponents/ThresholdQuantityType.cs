@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ThresholdQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ThresholdQuantityType : QuantityType1
     {
-    }
+		public static implicit operator ThresholdQuantityType(decimal val)
+		{
+			return new ThresholdQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }

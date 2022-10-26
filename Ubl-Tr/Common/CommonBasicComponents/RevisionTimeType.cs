@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("RevisionTime", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class RevisionTimeType : TimeType
     {
-    }
+		public static implicit operator RevisionTimeType(System.DateTime val)
+		{
+			return new RevisionTimeType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ExecutionRequirementCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ExecutionRequirementCodeType : CodeType1
     {
-    }
+		public static implicit operator ExecutionRequirementCodeType(string val)
+		{
+			return new ExecutionRequirementCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

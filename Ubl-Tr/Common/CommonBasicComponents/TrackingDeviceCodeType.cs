@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("TrackingDeviceCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class TrackingDeviceCodeType : CodeType1
     {
-    }
+		public static implicit operator TrackingDeviceCodeType(string val)
+		{
+			return new TrackingDeviceCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

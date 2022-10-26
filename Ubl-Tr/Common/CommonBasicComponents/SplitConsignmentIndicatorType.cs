@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("SplitConsignmentIndicator", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class SplitConsignmentIndicatorType : IndicatorType
     {
-    }
+		public static implicit operator SplitConsignmentIndicatorType(bool val)
+		{
+			return new SplitConsignmentIndicatorType
+			{
+				Value = val
+			};
+		}
+	}
 }

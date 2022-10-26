@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AdjustmentReasonCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AdjustmentReasonCodeType : CodeType1
     {
-    }
+		public static implicit operator AdjustmentReasonCodeType(string val)
+		{
+			return new AdjustmentReasonCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

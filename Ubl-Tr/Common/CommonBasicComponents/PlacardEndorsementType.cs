@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PlacardEndorsement", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PlacardEndorsementType : TextType1
     {
-    }
+		public static implicit operator PlacardEndorsementType(string val)
+		{
+			return new PlacardEndorsementType
+			{
+				Value = val
+			};
+		}
+	}
 }

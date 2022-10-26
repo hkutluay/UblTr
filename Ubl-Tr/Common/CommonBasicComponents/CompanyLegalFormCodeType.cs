@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CompanyLegalFormCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CompanyLegalFormCodeType : CodeType1
     {
-    }
+		public static implicit operator CompanyLegalFormCodeType(string val)
+		{
+			return new CompanyLegalFormCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

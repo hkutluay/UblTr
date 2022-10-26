@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PromotionalEventTypeCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PromotionalEventTypeCodeType : CodeType1
     {
-    }
+		public static implicit operator PromotionalEventTypeCodeType(string val)
+		{
+			return new PromotionalEventTypeCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

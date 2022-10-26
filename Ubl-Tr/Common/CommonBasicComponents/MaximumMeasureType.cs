@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("MaximumMeasure", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class MaximumMeasureType : MeasureType1
     {
-    }
+		public static implicit operator MaximumMeasureType(decimal val)
+		{
+			return new MaximumMeasureType
+			{
+				Value = val
+			};
+		}
+	}
 }

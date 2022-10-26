@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ContractType", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ContractTypeType : TextType1
     {
-    }
+		public static implicit operator ContractTypeType(string val)
+		{
+			return new ContractTypeType
+			{
+				Value = val
+			};
+		}
+	}
 }

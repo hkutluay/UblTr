@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("ShipsRequirements", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class ShipsRequirementsType : TextType1
     {
-    }
+		public static implicit operator ShipsRequirementsType(string val)
+		{
+			return new ShipsRequirementsType
+			{
+				Value = val
+			};
+		}
+	}
 }

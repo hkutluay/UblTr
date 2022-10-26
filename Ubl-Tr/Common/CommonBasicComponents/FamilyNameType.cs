@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("FamilyName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class FamilyNameType : NameType
     {
-    }
+		public static implicit operator FamilyNameType(string val)
+		{
+			return new FamilyNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("AirFlowPercent", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class AirFlowPercentType : PercentType
     {
-    }
+		public static implicit operator AirFlowPercentType(decimal val)
+		{
+			return new AirFlowPercentType
+			{
+				Value = val
+			};
+		}
+	}
 }

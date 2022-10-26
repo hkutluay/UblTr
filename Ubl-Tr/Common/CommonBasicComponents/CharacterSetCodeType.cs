@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("CharacterSetCode", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class CharacterSetCodeType : CodeType1
     {
-    }
+		public static implicit operator CharacterSetCodeType(string val)
+		{
+			return new CharacterSetCodeType
+			{
+				Value = val
+			};
+		}
+	}
 }

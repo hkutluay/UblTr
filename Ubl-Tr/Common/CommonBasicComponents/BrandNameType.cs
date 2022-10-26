@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("BrandName", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class BrandNameType : NameType
     {
-    }
+		public static implicit operator BrandNameType(string val)
+		{
+			return new BrandNameType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("LatestDeliveryDate", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class LatestDeliveryDateType : DateType
     {
-    }
+		public static implicit operator LatestDeliveryDateType(System.DateTime val)
+		{
+			return new LatestDeliveryDateType
+			{
+				Value = val
+			};
+		}
+	}
 }

@@ -7,5 +7,12 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlRootAttribute("PreviousMeterQuantity", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
     public partial class PreviousMeterQuantityType : QuantityType1
     {
-    }
+		public static implicit operator PreviousMeterQuantityType(decimal val)
+		{
+			return new PreviousMeterQuantityType
+			{
+				Value = val
+			};
+		}
+	}
 }
