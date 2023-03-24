@@ -57,25 +57,6 @@ private static void Main(string[] args)
 }
 
 ```
-```csharp
-private static void Main(string[] args)
-{
-      var invoice = new UblTr.MainDoc.InvoiceType()
-      {
-            UUID = Guid.NewGuid().ToString(),
-            UBLVersionID ="2.1",
-            CustomizationID = "TR1.2",
-            ProfileID ="TEMELFATURA",
-            ID = "INV20200000000001",
-            CopyIndicator = false
-      };
-
-      XmlSerializer xmlSerializer = new XmlSerializer(typeof(UblTr.MainDoc.InvoiceType));
-      using TextWriter writer = new StreamWriter(@"C:\Temp\TestInvoice.xml"); //path to document
-      xmlSerializer.Serialize(writer, invoice, new UblTr.Serialization.UblTrNamespaces());
-}
-
- ```
  
 **Xml file content**
  ```xml
