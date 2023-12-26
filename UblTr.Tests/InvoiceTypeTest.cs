@@ -43,6 +43,20 @@ namespace UblTr.Tests
         }
 
         [TestMethod]
+        public void InvoiceType_BasicInvoiceLongTimeWithZone3f_Deserialize()
+        {
+            var invoice = DeserializeInvoiceXml( $"{_testFilesPath}/BasicInvoiceLongTimeWithZone3f.xml");
+            Assert.AreEqual("23:30:41", TimeZoneInfo.ConvertTimeToUtc(invoice.IssueTime.Value).ToString("HH:mm:ss"));
+        }
+
+        [TestMethod]
+        public void InvoiceType_BasicInvoiceLongTime7f_Deserialize()
+        {
+            var invoice = DeserializeInvoiceXml( $"{_testFilesPath}/BasicInvoiceLongTime7f.xml");
+            Assert.AreEqual("15:21:06", TimeZoneInfo.ConvertTimeToUtc(invoice.IssueTime.Value).ToString("HH:mm:ss"));
+        }
+
+         [TestMethod]
         public void InvoiceType_BasicInvoiceLongTime_Deserialize()
         {
             var invoice = DeserializeInvoiceXml( $"{_testFilesPath}/BasicInvoiceLongTime.xml");

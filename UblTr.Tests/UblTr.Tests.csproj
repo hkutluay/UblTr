@@ -47,6 +47,12 @@
     <None Update="TestFiles\InvoiceType\BasicInvoiceHourMinuteTime.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="TestFiles\InvoiceType\BasicInvoiceLongTimeWithZone3f.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestFiles\InvoiceType\BasicInvoiceLongTime7f.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

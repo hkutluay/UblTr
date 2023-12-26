@@ -47,7 +47,9 @@ namespace UblTr.Common
             "HH:mm",
             "HH:mm:ss.fffff",
             "HH:mm:ss.fffffff",
-            "HH:mm:ss.fffffffzzz"
+            "HH:mm:ss.fffffffzzz",
+            "HH:mm:ss.fffzzz",
+            "HH:mm:ss.fffffffZ"
         };
 
         private System.DateTime valueField;
