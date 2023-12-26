@@ -41,15 +41,6 @@ namespace UblTr.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class TimeType
     {
-
-        private List<string> applicableTimeFormats = new List<string> {
-            "HH:mm:ss",
-            "HH:mm",
-            "HH:mm:ss.fffff",
-            "HH:mm:ss.fffffff",
-            "HH:mm:ss.fffffffzzz"
-        };
-
         private System.DateTime valueField;
 
         /// <remarks/>
@@ -75,13 +66,11 @@ namespace UblTr.Common
                 bool parsed = false;
                 DateTime parsedValue;
 
-                foreach (var format in applicableTimeFormats)
+                 
+                if(DateTime.TryParse(value,CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedValue)) 
                 {
-                    if(DateTime.TryParseExact(value, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedValue)) 
-                    {
-                        this.valueField = parsedValue;
-                        parsed = true;
-                    }
+                    this.valueField = parsedValue;
+                    parsed = true;
                 }
                 
                 if(!parsed) 
