@@ -67,14 +67,10 @@ namespace UblTr.Tests
                 CopyIndicator = new Common.CopyIndicatorType() { Value = false }
             };
 
-
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(DespatchAdviceType));
             var stream = new MemoryStream();
             xmlSerializer.Serialize(stream, despatch, new UblTrNamespaces());
-
-            File.WriteAllBytes( @"C:\Temp\irsalite.xml",stream.ToArray());
             stream.Seek(0,SeekOrigin.Begin);
-
 
             var deserializedDespatch = (DespatchAdviceType)xmlSerializer.Deserialize(stream);
 
