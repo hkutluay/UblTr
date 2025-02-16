@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3;netstandard2.1;netstandard2.0;net45;net46;netcoreapp1.0;netcoreapp1.1;net5.0;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;netstandard2.1;netstandard2.0;net45;net46;netcoreapp1.0;netcoreapp1.1;net5.0;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
     <RootNamespace>UblTr</RootNamespace>
     <Authors>Hakan Kutluay</Authors>
     <Description>Ubl-Tr v1.2.1 (UBL 2.1) .Net Classes</Description>
@@ -9,10 +9,10 @@
     <RepositoryType>Github</RepositoryType>
     <PackageTags>ubltr ubl-tr e-invoice ubl ubl-tr-1.2.1 e-fatura fatura efatura e-despatch eirsaliye irsaliye applicationresponse uygulamayaniti creditnote receiptadvice </PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.3.1</Version>
+    <Version>1.3.2</Version>
     <PackageIcon>icon.png</PackageIcon>
-    <AssemblyVersion>1.3.1.0</AssemblyVersion>
-    <FileVersion>1.3.1.0</FileVersion>
+    <AssemblyVersion>1.3.2.0</AssemblyVersion>
+    <FileVersion>1.3.2.0</FileVersion>
   </PropertyGroup> 
   <ItemGroup>
     <None Include="Images\icon.png">
