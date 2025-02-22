@@ -22,12 +22,10 @@ namespace UblTr.Tests
         }
         DespatchAdviceType DeserializeDespatchAdviceXml(string path)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(DespatchAdviceType));
+            var serializer = new XmlSerializer(typeof(DespatchAdviceType));
 
-            using (StreamReader reader = new StreamReader(path))
-            {
-                return (DespatchAdviceType)serializer.Deserialize(reader);
-            }
+            using var reader = new StreamReader(path);
+            return (DespatchAdviceType)serializer.Deserialize(reader);
         }
 
         [TestMethod]
@@ -41,7 +39,6 @@ namespace UblTr.Tests
             Assert.AreEqual(20, despatch.DespatchLine.FirstOrDefault().DeliveredQuantity.Value);
         }
 
-
         [TestMethod]
         public void DespatchAdviceType_Despatch2_Deserialize()
         {
@@ -53,7 +50,6 @@ namespace UblTr.Tests
             Assert.AreEqual(10, despatch.DespatchLine.FirstOrDefault().DeliveredQuantity.Value);
         }
     
-
         [TestMethod]
         public void DespatchAdviceType_Sample_Serialize()
         {
@@ -80,7 +76,5 @@ namespace UblTr.Tests
             Assert.AreEqual(despatch.CopyIndicator.Value, deserializedDespatch.CopyIndicator.Value);
             Assert.AreEqual(despatch.ProfileID.Value, deserializedDespatch.ProfileID.Value);
         }
-
-
     }
 }

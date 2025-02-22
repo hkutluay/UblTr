@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="general.xslt"?>
+<Invoice xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 ../xsdrt/maindoc/UBL-Invoice-2.1.xsd" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:n4="http://www.altova.com/samplexml/other-namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2">
+	<ext:UBLExtensions>
+		<ext:UBLExtension>
+			<ext:ExtensionContent>
+				<n4:auto-generated_for_wildcard/>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+	</ext:UBLExtensions>
+	<cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+	<cbc:CustomizationID>TR1.2</cbc:CustomizationID>
+	<cbc:ProfileID>TEMELFATURA</cbc:ProfileID>
+	<cbc:ID>GIB20090000000001</cbc:ID>
+	<cbc:CopyIndicator>false</cbc:CopyIndicator>
+	<cbc:UUID>F47AC10B-58CC-4372-A567-0E02B2C3D479</cbc:UUID>
+	<cbc:IssueDate>2009-01-05</cbc:IssueDate>
+	<cbc:IssueTime>14:42:00</cbc:IssueTime>
+	<cbc:InvoiceTypeCode>SATIS</cbc:InvoiceTypeCode>
+	<cbc:DocumentCurrencyCode>TRY</cbc:DocumentCurrencyCode>
+	<cbc:LineCountNumeric>1</cbc:LineCountNumeric>
+	<cac:InvoicePeriod>
+		<cbc:StartDate>2008-12-05</cbc:StartDate>
+		<cbc:EndDate>2009-01-05</cbc:EndDate>
+	</cac:InvoicePeriod>
+	<cac:AdditionalDocumentReference>
+		<cbc:ID>1</cbc:ID>
+		<cbc:IssueDate>2024-02-09</cbc:IssueDate>
+		<cbc:DocumentType>QRCODE</cbc:DocumentType>
+		<cac:Attachment>
+			<cbc:EmbeddedDocumentBinaryObject encodingCode="Base64" filename="1.png" mimeCode="image/png">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</cbc:EmbeddedDocumentBinaryObject>
+		</cac:Attachment>
+	</cac:AdditionalDocumentReference>
+	<cac:Signature>
+		<cbc:ID schemeID="VKN_TCKN">1288331521</cbc:ID>
+		<cac:SignatoryParty>
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="VKN">1288331521</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PostalAddress>
+				<cbc:StreetName>Papatya Caddesi Yasemin Sokak</cbc:StreetName>
+				<cbc:BuildingNumber>21</cbc:BuildingNumber>
+				<cbc:CitySubdivisionName>Beşiktaş</cbc:CitySubdivisionName>
+				<cbc:CityName>İstanbul</cbc:CityName>
+				<cbc:PostalZone>34100</cbc:PostalZone>
+				<cac:Country>
+					<cbc:Name>Türkiye</cbc:Name>
+				</cac:Country>
+			</cac:PostalAddress>
+		</cac:SignatoryParty>
+		<cac:DigitalSignatureAttachment>
+			<cac:ExternalReference>
+				<cbc:URI>#Signature</cbc:URI>
+			</cac:ExternalReference>
+		</cac:DigitalSignatureAttachment>
+	</cac:Signature>
+	<cac:AccountingSupplierParty>
+		<cac:Party>
+			<cbc:WebsiteURI>http://www.aaa.com.tr/</cbc:WebsiteURI>
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="VKN">1288331521</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyName>
+				<cbc:Name>AAA Anonim Şirketi</cbc:Name>
+			</cac:PartyName>
+			<cac:PostalAddress>
+				<cbc:ID>1234567890</cbc:ID>
+				<cbc:StreetName>Papatya Caddesi Yasemin Sokak</cbc:StreetName>
+				<cbc:BuildingNumber>21</cbc:BuildingNumber>
+				<cbc:CitySubdivisionName>Beşiktaş</cbc:CitySubdivisionName>
+				<cbc:CityName>İstanbul</cbc:CityName>
+				<cbc:PostalZone>34100</cbc:PostalZone>
+				<cac:Country>
+					<cbc:Name>Türkiye</cbc:Name>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:PartyTaxScheme>
+				<cac:TaxScheme>
+					<cbc:Name>Büyük Mükellefler</cbc:Name>
+				</cac:TaxScheme>
+			</cac:PartyTaxScheme>
+			<cac:Contact>
+				<cbc:Telephone>(212) 925 51515</cbc:Telephone>
+				<cbc:Telefax>(212) 925505015</cbc:Telefax>
+				<cbc:ElectronicMail>aa@aaa.com.tr</cbc:ElectronicMail>
+			</cac:Contact>
+		</cac:Party>
+	</cac:AccountingSupplierParty>
+	<cac:AccountingCustomerParty>
+		<cac:Party>
+			<cbc:WebsiteURI/>
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="TCKN">1234567890</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="TESISATNO">1234567</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="SAYACNO">12345678</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PostalAddress>
+				<cbc:ID>ATATÜRK MAH.</cbc:ID>
+				<cbc:Room>1</cbc:Room>
+				<cbc:StreetName>6. Sokak</cbc:StreetName>
+				<cbc:BuildingNumber>1</cbc:BuildingNumber>
+				<cbc:CitySubdivisionName>Beşiktaş</cbc:CitySubdivisionName>
+				<cbc:CityName>İstanbul</cbc:CityName>
+				<cbc:PostalZone>34100</cbc:PostalZone>
+				<cac:Country>
+					<cbc:Name>Türkiye</cbc:Name>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:Contact>
+				<cbc:ElectronicMail>1234567890@mydn.com.tr</cbc:ElectronicMail>
+			</cac:Contact>
+			<cac:Person>
+				<cbc:FirstName>Ali</cbc:FirstName>
+				<cbc:FamilyName>YILMAZ</cbc:FamilyName>
+			</cac:Person>
+		</cac:Party>
+	</cac:AccountingCustomerParty>
+	<cac:PaymentTerms>
+		<cbc:Note>BBB Bank Otomatik Ödeme</cbc:Note>
+		<cbc:PaymentDueDate>2009-01-20</cbc:PaymentDueDate>
+	</cac:PaymentTerms>
+	<cac:TaxTotal>
+		<cbc:TaxAmount currencyID="TRY">2.73</cbc:TaxAmount>
+		<cac:TaxSubtotal>
+			<cbc:TaxableAmount currencyID="TRY">15.15</cbc:TaxableAmount>
+			<cbc:TaxAmount currencyID="TRY">2.73</cbc:TaxAmount>
+			<cac:TaxCategory>
+				<cac:TaxScheme>
+					<cbc:TaxTypeCode>0015</cbc:TaxTypeCode>
+				</cac:TaxScheme>
+			</cac:TaxCategory>
+		</cac:TaxSubtotal>
+	</cac:TaxTotal>
+	<cac:LegalMonetaryTotal>
+		<cbc:LineExtensionAmount currencyID="TRY">15.15</cbc:LineExtensionAmount>
+		<cbc:TaxExclusiveAmount currencyID="TRY">15.15</cbc:TaxExclusiveAmount>
+		<cbc:TaxInclusiveAmount currencyID="TRY">17.88</cbc:TaxInclusiveAmount>
+		<cbc:PayableAmount currencyID="TRY">17.88</cbc:PayableAmount>
+	</cac:LegalMonetaryTotal>
+	<cac:InvoiceLine>
+		<cbc:ID>1</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="KWH">101</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="TRY">15.15</cbc:LineExtensionAmount>
+		<cac:AllowanceCharge>
+			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+			<cbc:MultiplierFactorNumeric>0.0</cbc:MultiplierFactorNumeric>
+			<cbc:Amount currencyID="TRY">0</cbc:Amount>
+			<cbc:BaseAmount currencyID="TRY">15.15</cbc:BaseAmount>
+		</cac:AllowanceCharge>
+		<cac:TaxTotal>
+			<cbc:TaxAmount currencyID="TRY">2.73</cbc:TaxAmount>
+			<cac:TaxSubtotal>
+				<cbc:TaxableAmount currencyID="TRY">15.15</cbc:TaxableAmount>
+				<cbc:TaxAmount currencyID="TRY">2.73</cbc:TaxAmount>
+				<cbc:Percent>18.0</cbc:Percent>
+				<cac:TaxCategory>
+					<cac:TaxScheme>
+						<cbc:Name>KDV</cbc:Name>
+						<cbc:TaxTypeCode>0015</cbc:TaxTypeCode>
+					</cac:TaxScheme>
+				</cac:TaxCategory>
+			</cac:TaxSubtotal>
+		</cac:TaxTotal>
+		<cac:Item>
+			<cbc:Name>Elektrik Tüketim Bedeli</cbc:Name>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="TRY">0.15</cbc:PriceAmount>
+		</cac:Price>
+	</cac:InvoiceLine>
+</Invoice>

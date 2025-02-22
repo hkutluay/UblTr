@@ -14,20 +14,20 @@ namespace UblTr.Tests
     public class InvoiceTypeTest
     {
         private readonly string _testFilesPath;
+        private readonly string _testBinariesPath;
       
         public InvoiceTypeTest()
         {
              _testFilesPath = "TestFiles/InvoiceType";
+             _testBinariesPath = "TestFiles/Binaries";
         }
 
-        InvoiceType DeserializeInvoiceXml(string path)
+        static InvoiceType DeserializeInvoiceXml(string path)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(InvoiceType));
+            var serializer = new XmlSerializer(typeof(InvoiceType));
 
-            using (StreamReader reader = new StreamReader(path))
-            {
-                return (InvoiceType)serializer.Deserialize(reader);
-            }
+            using var reader = new StreamReader(path);
+            return (InvoiceType)serializer.Deserialize(reader);
         }
 
         [TestMethod]
@@ -88,6 +88,35 @@ namespace UblTr.Tests
         }
 
         [TestMethod]
+        public void InvoiceType_BasicInvoiceInvalidAdditionalDocument_Deserialize()
+        {
+            var invoice = DeserializeInvoiceXml($"{_testFilesPath}/BasicInvoiceInvalidAdditionalDocument.xml");
+            Assert.AreEqual("GIB20090000000001", invoice.ID.Value);
+            Assert.AreEqual("TEMELFATURA", invoice.ProfileID.Value);
+            Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
+            Assert.AreEqual("1", invoice.AdditionalDocumentReference.FirstOrDefault().ID.Value);
+            Assert.AreEqual("QRCODE", invoice.AdditionalDocumentReference.FirstOrDefault().DocumentType.Value);
+        }
+
+        [TestMethod]
+        public void InvoiceType_BasicInvoiceValidAdditionalDocument_Deserialize()
+        {
+            var invoice = DeserializeInvoiceXml($"{_testFilesPath}/BasicInvoiceValidAdditionalDocument.xml");
+            Assert.AreEqual("GIB20090000000001", invoice.ID.Value);
+            Assert.AreEqual("TEMELFATURA", invoice.ProfileID.Value);
+            Assert.AreEqual("F47AC10B-58CC-4372-A567-0E02B2C3D479", invoice.UUID.Value);
+            Assert.AreEqual(1,invoice.AdditionalDocumentReference.Count());
+            var firstAdditionalDocument = invoice.AdditionalDocumentReference.FirstOrDefault();
+            Assert.AreEqual("1", firstAdditionalDocument.ID.Value);
+            Assert.AreEqual("QRCODE", firstAdditionalDocument.DocumentType.Value);
+            Assert.IsNotNull(firstAdditionalDocument.Attachment.EmbeddedDocumentBinaryObject.Value);
+             var bytes = File.ReadAllBytes($"{_testBinariesPath}/qr.png");
+            Assert.AreEqual(bytes.Length, firstAdditionalDocument.Attachment.EmbeddedDocumentBinaryObject.Value.Length);
+            Assert.IsTrue(bytes.SequenceEqual(firstAdditionalDocument.Attachment.EmbeddedDocumentBinaryObject.Value));
+        }
+
+
+        [TestMethod]
         public void InvoiceType_CommercialInvoice_Deserialize()
         {
             var invoice = DeserializeInvoiceXml($"{_testFilesPath}/CommercialInvoice.xml");
@@ -122,7 +151,6 @@ namespace UblTr.Tests
                 IssueDate = date
             };
 
-       
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(InvoiceType));
             var stream = new MemoryStream();
             xmlSerializer.Serialize(stream, invoice, new UblTrNamespaces());
@@ -136,8 +164,6 @@ namespace UblTr.Tests
             Assert.AreEqual(invoice.CopyIndicator.Value, deserializedInvoice.CopyIndicator.Value);
             Assert.AreEqual(invoice.ProfileID.Value, deserializedInvoice.ProfileID.Value);
         }
-
-
 
         [TestMethod]
         public void InvoiceType_BasicInvoice_TimeSerialize()
@@ -163,7 +189,6 @@ namespace UblTr.Tests
                 IssueDate = date
             };
 
-
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(InvoiceType));
             var stream = new MemoryStream();
             xmlSerializer.Serialize(stream, invoice, new UblTrNamespaces());
@@ -177,9 +202,6 @@ namespace UblTr.Tests
             var sn = doc.SelectSingleNode(xPath, namespaces);
           
             Assert.AreEqual(date.ToString("HH:mm:ss"), sn.InnerText);
-
         }
-
-
     }
 }

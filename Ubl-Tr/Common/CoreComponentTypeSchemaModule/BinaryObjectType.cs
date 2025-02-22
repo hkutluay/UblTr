@@ -1,3 +1,6 @@
+using System;
+using System.Xml.Serialization;
+
 namespace UblTr.Common
 {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(VideoType))]
@@ -112,7 +115,7 @@ namespace UblTr.Common
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute(DataType = "base64Binary")]
+        [XmlIgnore]
         public byte[] Value
         {
             get
@@ -122,6 +125,27 @@ namespace UblTr.Common
             set
             {
                 this.valueField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string ValueBase64
+        {
+            get
+            {
+                return System.Convert.ToBase64String(this.valueField);
+            }
+            set
+            {
+                try
+                {
+                    this.valueField = System.Convert.FromBase64String(value);
+                }
+                catch (Exception)
+                {
+                    this.valueField = null;
+                }
             }
         }
     }
