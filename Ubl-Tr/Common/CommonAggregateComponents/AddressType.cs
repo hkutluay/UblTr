@@ -34,6 +34,8 @@ namespace UblTr.Common
 
         private CountryType countryField;
 
+        private AddressLineType[] addressLineField;
+
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
         public IDType ID
@@ -212,6 +214,19 @@ namespace UblTr.Common
             set
             {
                 this.countryField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
+        public AddressLineType[] AddressLine
+        {
+            get
+            {
+                return this.addressLineField;
+            }
+            set
+            {
+                this.addressLineField = value;
             }
         }
     }
