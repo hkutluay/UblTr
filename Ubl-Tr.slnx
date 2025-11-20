@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Ubl-Tr/UblTr.csproj" />
+  <Project Path="UblTr.Tests/UblTr.Tests.csproj" />
+</Solution>
