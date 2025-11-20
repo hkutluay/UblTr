@@ -74,7 +74,7 @@ namespace UblTr.Tests
         [TestMethod]
         public void InvoiceType_BasicInvoiceIncorrectTime_Deserialize()
         {
-            Assert.ThrowsException<System.InvalidOperationException>(() =>
+            Assert.Throws<InvalidOperationException>(() =>
             {
                var invoice = DeserializeInvoiceXml($"{_testFilesPath}/BasicInvoiceIncorrectTime.xml");
             });
@@ -111,7 +111,7 @@ namespace UblTr.Tests
             Assert.AreEqual("QRCODE", firstAdditionalDocument.DocumentType.Value);
             Assert.IsNotNull(firstAdditionalDocument.Attachment.EmbeddedDocumentBinaryObject.Value);
              var bytes = File.ReadAllBytes($"{_testBinariesPath}/qr.png");
-            Assert.AreEqual(bytes.Length, firstAdditionalDocument.Attachment.EmbeddedDocumentBinaryObject.Value.Length);
+            Assert.HasCount(bytes.Length, firstAdditionalDocument.Attachment.EmbeddedDocumentBinaryObject.Value);
             Assert.IsTrue(bytes.SequenceEqual(firstAdditionalDocument.Attachment.EmbeddedDocumentBinaryObject.Value));
         }
 
